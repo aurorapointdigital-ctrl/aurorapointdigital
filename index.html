@@ -938,6 +938,60 @@
             padding-bottom: 1rem;
         }
 
+        /* Nueva sección de reservas con Calendly */
+        .schedule-section {
+            background: var(--white-bg);
+            padding: 4rem 20px;
+            text-align: center;
+        }
+
+        .schedule-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .schedule-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .schedule-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-darker) 100%);
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+            font-family: var(--font-family-heading);
+            text-transform: uppercase;
+        }
+
+        .schedule-button:hover {
+            background: linear-gradient(135deg, var(--primary-darker) 0%, var(--primary-color) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, 0.6);
+        }
+
+        .schedule-button.paid {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #f0932b 100%);
+            box-shadow: 0 4px 15px rgba(244, 180, 0, 0.4);
+        }
+
+        .schedule-button.paid:hover {
+            background: linear-gradient(135deg, #f0932b 0%, var(--secondary-color) 100%);
+            box-shadow: 0 6px 20px rgba(244, 180, 0, 0.6);
+        }
+
         /* Responsive para la nueva sección de paquetes */
         @media (max-width: 1024px) {
             .packages-grid {
@@ -1022,6 +1076,7 @@
                 margin-top: 3rem;
             }
             .faq-question { font-size: 1rem; }
+            .schedule-buttons { flex-direction: column; gap: 1rem; }
         }
 
         @media (max-width: 480px) {
@@ -1080,6 +1135,7 @@
                 <li><a href="#benefits">Beneficios</a></li>
                 <li><a href="#about-me">Sobre Mí</a></li>
                 <li><a href="#portfolio">Portafolio</a></li>
+                <li><a href="#schedule">Reservas</a></li>
                 <li><a href="#contact">Contacto</a></li>
             </ul>
         </nav>
@@ -1091,7 +1147,7 @@
             <div class="hero-content container">
                 <h1>Aurora Point</h1>
                 <p>Tu aliado en e-commerce B2B dental: Escala ventas de insumos (resinas, implantes) con ads targeted a odontólogos, IA y landings CRO. Recomendamos Shopify para Latam, con expertise en WooCommerce para migraciones suaves. Con trabajo inteligente valorando tu tiempo.</p>
-                <a href="#contact" class="cta-button">¡Impulsa tu Negocio Hoy!</a>
+                <a href="#schedule" class="cta-button">¡Agenda tu Reunión!</a>
                 <a href="https://forms.gle/YOUR_FORM_LINK_HERE" class="cta-button secondary" target="_blank">Descarga Guía Gratis: Escala Ventas de Insumos Odontológicos Online</a>
             </div>
         </section>
@@ -1192,7 +1248,7 @@
                     </tbody>
                 </table>
             </div>
-            <a href="#contact" class="cta-button animate-on-scroll">¡Evalúa tu Plataforma Gratis!</a>
+            <a href="#schedule" class="cta-button animate-on-scroll">¡Agenda tu Evaluación!</a>
         </section>
 
         <!-- SECCIÓN DE PAQUETES MODERNIZADA -->
@@ -1216,7 +1272,7 @@
                         </ul>
                     </div>
                     <div class="package-footer">
-                        <a href="#contact" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
+                        <a href="#schedule" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -1238,7 +1294,7 @@
                         </ul>
                     </div>
                     <div class="package-footer">
-                        <a href="#contact" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
+                        <a href="#schedule" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 
@@ -1259,7 +1315,7 @@
                         </ul>
                     </div>
                     <div class="package-footer">
-                        <a href="#contact" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
+                        <a href="#schedule" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
 
@@ -1280,7 +1336,7 @@
                         </ul>
                     </div>
                     <div class="package-footer">
-                        <a href="#contact" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
+                        <a href="#schedule" class="modern-cta-button">Cotiza Ahora <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -1288,7 +1344,7 @@
             <div class="pricing-cta animate-on-scroll">
                 <h3>¿Necesitas una solución personalizada?</h3>
                 <p>Precios desde — adaptados a tu e-com dental en Shopify o WooCommerce</p>
-                <a href="#contact" class="modern-cta-button">¡Cotiza Ahora! <i class="fas fa-arrow-right"></i></a>
+                <a href="#schedule" class="modern-cta-button">¡Cotiza Ahora! <i class="fas fa-arrow-right"></i></a>
             </div>
         </section>
 
@@ -1324,7 +1380,7 @@
                 <div class="testimonial-card animate-on-scroll stagger" style="--i: 2;">
                     <i class="fas fa-handshake-angle icon"></i>
                     <h3>Colaboración Personal</h3>
-                    <p>Trabajamos codo a codo contigo, con transparencia y enfoque en el progreso constante para tu B2B dental, valorando cada minuto invertido. <a href="#contact">¡Hablemos!</a></p>
+                    <p>Trabajamos codo a codo contigo, con transparencia y enfoque en el progreso constante para tu B2B dental, valorando cada minuto invertido. <a href="#schedule">¡Agenda una Llamada!</a></p>
                 </div>
             </div>
         </section>
@@ -1382,7 +1438,7 @@
                 </div>
             </div>
             <div class="animate-on-scroll">
-                <a href="#contact" class="cta-button">¡Comienza Ahora!</a>
+                <a href="#schedule" class="cta-button">¡Agenda Ahora!</a>
             </div>
         </section>
 
@@ -1392,7 +1448,7 @@
                 <img src="imagen.png" alt="Álvaro Álvarez, Fundador de Aurora Point" class="about-me-image" loading="lazy">
                 <div class="about-me-text">
                     <p>Soy Álvaro Álvarez, el fundador de Aurora Point. Con una pasión por el crecimiento digital y años de experiencia en marketing B2B dental, lidero proyectos que transforman negocios de e-commerce mediante dedicación, trabajo inteligente y valorando tu tiempo en Shopify y WooCommerce.</p>
-                    <p>Mi enfoque combina creatividad, datos y tecnología para ofrecer soluciones personalizadas que se construyen con tiempo y esfuerzo. Estoy aquí para guiarte en cada paso hacia tus objetivos en insumos dentales. <a href="#contact">¡Hablemos de tu proyecto!</a></p>
+                    <p>Mi enfoque combina creatividad, datos y tecnología para ofrecer soluciones personalizadas que se construyen con tiempo y esfuerzo. Estoy aquí para guiarte en cada paso hacia tus objetivos en insumos dentales. <a href="#schedule">¡Agenda una Reunión!</a></p>
                 </div>
             </div>
         </section>
@@ -1403,7 +1459,7 @@
                 <img src="SOBRE AURORA POINT.png" alt="Sobre Aurora Point" class="about-image" loading="lazy">
                 <div class="about-text">
                     <p>Aurora Point es el resultado de un equipo comprometido con transformar y escalar negocios de e-commerce B2B dental. Con más de 10 años de experiencia, combinamos marketing digital avanzado (SEO, SEM, CRO), inteligencia artificial y diseño de landing pages optimizadas para resinas e implantes, con trabajo inteligente valorando tu tiempo.</p>
-                    <p>Nos integramos con nuestros clientes para generar progreso medible y sostenible mediante dedicación y paciencia, incentivando Shopify para escala. Nuestra misión es apoyarte en el camino al siguiente nivel. <a href="#contact">¡Contáctanos hoy!</a></p>
+                    <p>Nos integramos con nuestros clientes para generar progreso medible y sostenible mediante dedicación y paciencia, incentivando Shopify para escala. Nuestra misión es apoyarte en el camino al siguiente nivel. <a href="#schedule">¡Agenda una Reunión!</a></p>
                 </div>
             </div>
         </section>
@@ -1412,17 +1468,31 @@
             <h2 class="animate-on-scroll">Páginas de Aterrizaje</h2>
             <div class="portfolio-grid">
                 <div class="portfolio-card animate-on-scroll stagger" style="--i: 1;">
-                    <a href="#contact">
+                    <a href="#schedule">
                         <img src="pagina de aterisaje dental.gif" alt="Página de aterrizaje para consultorio odontológico B2B" loading="lazy">
                         <h3>Landing Page Consultorio Odontológico B2B</h3>
                     </a>
                 </div>
                 <div class="portfolio-card animate-on-scroll stagger" style="--i: 2;">
-                    <a href="#contact">
+                    <a href="#schedule">
                         <img src="Pagina de aterisage automotora.gif" alt="Página de aterrizaje para Automotora del Cuareim" loading="lazy">
                         <h3>Landing Page Automotora del Cuareim</h3>
                     </a>
                 </div>
+            </div>
+        </section>
+
+        <!-- Nueva sección para reservas con Calendly -->
+        <section id="schedule" class="schedule-section container">
+            <h2 class="animate-on-scroll">Agenda tu Auditoría o Llamada Introductoria</h2>
+            <div class="schedule-content animate-on-scroll">
+                <p>En Aurora Point valoramos tu tiempo. Por eso, podés reservar fácilmente tu espacio para una llamada introductoria gratuita o una auditoría completa de tu e-commerce dental. Elegí el día y la hora que más te convenga y empecemos a trabajar en el crecimiento de tu negocio.</p>
+                <div class="schedule-buttons">
+                    <!-- CAMBIO AQUÍ: Enlace actualizado con tu URL real de Calendly gratuita -->
+                    <a href="https://calendly.com/aurorapointdigital/llamada-introductoria-gratis-30-min" target="_blank" rel="noopener noreferrer" class="schedule-button">Agendar Llamada Gratuita</a>
+                    <a href="https://calendly.com/tu-usuario-calendly/auditoria-completa" target="_blank" rel="noopener noreferrer" class="schedule-button paid">Reservar Auditoría Completa</a>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #555;">Para la auditoría completa, realiza el pago previo vía <a href="https://paypal.me/alvaroalvarez47" target="_blank">PayPal</a>. La reserva se confirmará una vez procesado el pago.</p>
             </div>
         </section>
 
@@ -1481,7 +1551,7 @@
         <section id="final-cta" class="final-cta container">
             <h2 class="animate-on-scroll">¿Listo para Construir tu E-com Dental?</h2>
             <p class="animate-on-scroll">Lleva tus ventas de insumos al siguiente nivel con Aurora Point en Shopify. Con trabajo inteligente valorando tu tiempo, empecemos el camino B2B.</p>
-            <a href="#contact" class="modern-cta-button animate-on-scroll">Contáctanos Ahora <i class="fas fa-arrow-right"></i></a>
+            <a href="#schedule" class="modern-cta-button animate-on-scroll">Agenda Ahora <i class="fas fa-arrow-right"></i></a>
         </section>
     </main>
 
