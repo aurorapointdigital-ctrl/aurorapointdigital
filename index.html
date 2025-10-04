@@ -14,7 +14,7 @@
             --primary-color: #3b82f6; /* Azul profesional */
             --primary-darker: #2563eb;
             --secondary-color: #6ee7b7; /* Verde claro */
-            --accent-color: #a7f3d0; /* Verde suave */
+            --accent-color: #e6f3fa; /* Azul claro para fondos */
             --light-bg: #f8fafc;
             --white-bg: #ffffff;
             --dark-text: #0f172a;
@@ -27,10 +27,9 @@
             --font-family-body: 'Inter', sans-serif;
             --border-radius-sm: 6px;
             --border-radius-md: 10px;
-            --border-radius-lg: 14px;
             --border-radius-pill: 9999px;
             --header-height: 60px;
-            --section-spacing: 5rem;
+            --section-spacing: 6rem;
         }
 
         *, *::before, *::after {
@@ -47,7 +46,7 @@
         body {
             font-family: var(--font-family-body);
             color: var(--body-text);
-            line-height: 1.65;
+            line-height: 1.6;
             background-color: var(--light-bg);
             overflow-x: hidden;
             font-size: 0.95rem;
@@ -61,7 +60,7 @@
             font-weight: 600;
         }
 
-        h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 1.25rem; }
+        h1 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem; }
         h2 { font-size: clamp(1.6rem, 3.5vw, 2rem); margin-bottom: 1.5rem; text-align: center; }
         h3 { font-size: clamp(1.15rem, 2.5vw, 1.4rem); margin-bottom: 0.75rem; }
         p { margin-bottom: 0.75rem; font-weight: 400; }
@@ -71,7 +70,7 @@
         ul { list-style: none; }
 
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1rem;
         }
@@ -97,23 +96,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1rem;
+            padding: 0 1.2rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--primary-color);
             font-family: var(--font-family-heading);
         }
 
         .logo-img {
-            width: 48px;
-            margin-right: 0.6rem;
+            width: 40px;
+            margin-right: 0.5rem;
             transition: transform 0.3s ease;
         }
 
@@ -130,10 +129,13 @@
         nav ul li a {
             color: var(--dark-text);
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             padding: 0.5rem 0.8rem;
             border-radius: var(--border-radius-sm);
             transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         nav ul li a:hover {
@@ -143,7 +145,7 @@
 
         .menu-toggle {
             display: none;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             background: none;
             border: none;
             color: var(--dark-text);
@@ -153,7 +155,7 @@
         /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 80vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -170,7 +172,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Overlay oscuro */
+            background: rgba(0, 0, 0, 0.5);
             z-index: 1;
         }
 
@@ -183,7 +185,7 @@
         .hero h1 {
             color: var(--light-text);
             font-weight: 700;
-            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            font-size: clamp(1.8rem, 4vw, 3rem);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
@@ -229,14 +231,20 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--light-text);
-            border: 1.5px solid var(--light-text);
+            color: var(--dark-text);
+            border: 1.5px solid var(--primary-color);
+            font-weight: 500;
         }
 
         .btn-secondary:hover {
-            background: var(--light-text);
-            color: var(--primary-darker);
+            background: var(--primary-darker);
+            color: var(--light-text);
             transform: translateY(-2px);
+        }
+
+        .btn-my-method:hover {
+            background: var(--secondary-color);
+            color: var(--dark-text);
         }
 
         /* E-COMMERCE SECTION */
@@ -259,15 +267,15 @@
         .ecommerce-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
         .feature-card {
-            background: var(--white-bg);
+            background: var(--light-bg);
             border-radius: var(--border-radius-md);
             padding: 1.5rem;
-            text-align: center;
+            text-align: left;
             box-shadow: 0 2px 6px var(--shadow-light);
             transition: all 0.2s ease;
         }
@@ -278,30 +286,126 @@
         }
 
         .feature-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--secondary-color);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .feature-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
-        .feature-card p {
+        .feature-card ul {
+            margin-top: 0.5rem;
+        }
+
+        .feature-card li {
             font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card li i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
         }
 
         /* DENTAL SECTION */
         .dental-section {
             padding: var(--section-spacing) 1rem;
-            background-color: var(--light-bg);
+            background-color: var(--accent-color);
         }
 
         .dental-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
             margin-bottom: 2rem;
+        }
+
+        /* PACKAGES SECTION */
+        .packages-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--white-bg);
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .package-card {
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 2px 6px var(--shadow-light);
+            transition: all 0.2s ease;
+        }
+
+        .package-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+
+        .package-icon {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.75rem;
+        }
+
+        .package-price {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin: 0.5rem 0;
+        }
+
+        .package-period {
+            font-size: 0.8rem;
+            color: var(--body-text);
+        }
+
+        .package-features li {
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-features li i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        /* PARTNERS SECTION */
+        .partners-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--light-bg);
+        }
+
+        .partners-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 60px;
+            object-fit: contain;
+            filter: grayscale(50%);
+            transition: all 0.3s ease;
+        }
+
+        .partner-logo:hover {
+            filter: grayscale(0%);
+            transform: scale(1.1);
         }
 
         /* HOW WE WORK SECTION */
@@ -313,11 +417,11 @@
         .how-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.25rem;
+            gap: 1.5rem;
         }
 
         .how-card {
-            background: var(--white-bg);
+            background: var(--light-bg);
             border-radius: var(--border-radius-md);
             padding: 1.5rem;
             text-align: center;
@@ -331,13 +435,13 @@
         }
 
         .how-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--secondary-color);
             margin-bottom: 0.75rem;
         }
 
         .how-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         .how-card p {
@@ -346,7 +450,7 @@
 
         .how-highlight {
             text-align: center;
-            margin-top: 2rem;
+            margin: 2rem 0;
             font-size: 1.1rem;
             font-weight: 500;
             color: var(--primary-color);
@@ -355,12 +459,12 @@
         /* ABOUT SECTIONS */
         .about-sections {
             padding: var(--section-spacing) 1rem;
-            background-color: var(--light-bg);
+            background-color: var(--accent-color);
         }
 
         .about-me-content, .about-content {
             max-width: 900px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 3rem;
             display: flex;
             align-items: center;
             gap: 1.5rem;
@@ -372,7 +476,7 @@
         }
 
         .about-image, .about-me-image {
-            width: 220px;
+            width: 200px;
             border-radius: var(--border-radius-md);
             box-shadow: 0 2px 6px var(--shadow-light);
         }
@@ -382,36 +486,10 @@
             color: var(--body-text);
         }
 
-        /* PARTNERS SECTION */
-        .partners-section {
-            padding: var(--section-spacing) 1rem;
-            background-color: var(--white-bg);
-        }
-
-        .partners-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .partner-logo {
-            width: 100px;
-            height: 50px;
-            object-fit: contain;
-            filter: grayscale(20%) opacity(0.9);
-            transition: all 0.2s ease;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.05);
-        }
-
         /* CONTACT SECTION */
         .contact-section {
             padding: var(--section-spacing) 1rem;
-            background-color: var(--light-bg);
+            background-color: var(--white-bg);
         }
 
         .contact-content {
@@ -429,14 +507,14 @@
         }
 
         .contact-form {
-            background: var(--white-bg);
+            background: var(--light-bg);
             border-radius: var(--border-radius-md);
             padding: 1.5rem;
             box-shadow: 0 2px 6px var(--shadow-light);
         }
 
         .form-group {
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
 
         .form-group label {
@@ -448,7 +526,7 @@
 
         .form-control {
             width: 100%;
-            padding: 0.6rem;
+            padding: 0.7rem;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-sm);
             font-size: 0.85rem;
@@ -462,7 +540,7 @@
         }
 
         textarea.form-control {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
         }
 
@@ -485,22 +563,25 @@
         /* CTA FIJO */
         .cta-fixed {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 10px;
+            right: 10px;
             background: var(--primary-color);
             color: var(--light-text);
-            padding: 0.8rem 2rem;
+            padding: 0.6rem 1.5rem;
             border-radius: var(--border-radius-pill);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             box-shadow: 0 2px 8px var(--shadow-medium);
-            transition: transform 0.2s ease;
+            transition: background 0.2s ease, transform 0.2s ease;
             z-index: 1000;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .cta-fixed:hover {
             background: var(--primary-darker);
-            transform: translateY(-3px);
+            transform: scale(1.05);
+            color: var(--light-text);
         }
 
         /* FOOTER */
@@ -513,8 +594,8 @@
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 1200px;
+            gap: 1.2rem;
+            max-width: 1100px;
             margin: 0 auto;
             padding: 0 1rem;
         }
@@ -522,7 +603,7 @@
         .footer-logo {
             display: flex;
             align-items: center;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--light-text);
             font-family: var(--font-family-heading);
@@ -530,8 +611,8 @@
         }
 
         .footer-logo img {
-            width: 50px;
-            margin-right: 0.8rem;
+            width: 45px;
+            margin-right: 0.7rem;
         }
 
         .footer-links {
@@ -542,7 +623,7 @@
 
         .footer-links a {
             color: var(--light-text);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             margin: 0.3rem 0;
             transition: color 0.2s ease;
         }
@@ -552,25 +633,25 @@
         }
 
         .social-links {
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             display: flex;
-            gap: 0.8rem;
+            gap: 0.6rem;
             flex-wrap: wrap;
         }
 
         .social-links a {
             color: var(--light-text);
-            font-size: 0.9rem;
-            padding: 0.5rem;
+            font-size: 0.8rem;
+            padding: 0.4rem;
             border-radius: var(--border-radius-sm);
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.4rem;
         }
 
         .social-links a i {
-            font-size: 1.2rem;
+            font-size: 0.6rem;
         }
 
         .social-links a.instagram {
@@ -579,10 +660,6 @@
 
         .social-links a.linkedin {
             background-color: #0A66C2;
-        }
-
-        .social-links a.youtube {
-            background-color: #FF0000;
         }
 
         .social-links a:hover {
@@ -597,14 +674,10 @@
             background-color: #004182;
         }
 
-        .social-links a.youtube:hover {
-            background-color: #CC0000;
-        }
-
         .footer-bottom {
             text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
+            margin-top: 1.2rem;
+            font-size: 0.75rem;
             opacity: 0.8;
         }
 
@@ -626,28 +699,33 @@
                 display: block;
             }
 
+            nav {
+                padding: 0 1rem;
+            }
+
             nav ul {
                 display: none;
                 flex-direction: column;
-                position: fixed;
+                position: absolute;
                 top: var(--header-height);
                 left: 0;
                 width: 100%;
                 background: var(--white-bg);
-                padding: 1.5rem 0;
                 box-shadow: 0 3px 8px var(--shadow-light);
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
+                transition: opacity 0.3s ease, visibility 0.3s ease;
+                opacity: 0;
+                visibility: hidden;
             }
 
             nav ul.active {
                 display: flex;
-                transform: translateX(0);
+                opacity: 1;
+                visibility: visible;
             }
 
             nav ul li a {
-                font-size: 1rem;
-                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
             }
 
             .hero {
@@ -663,9 +741,11 @@
             .btn {
                 width: 100%;
                 max-width: 300px;
+                padding: 0.8rem 1.5rem;
+                font-size: 1rem;
             }
 
-            .ecommerce-features, .dental-features, .how-grid {
+            .ecommerce-features, .dental-features, .how-grid, .packages-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -676,28 +756,28 @@
             }
 
             .about-image, .about-me-image {
-                width: 180px;
+                width: 160px;
             }
 
             .partner-logo {
-                width: 80px;
+                width: 100px;
             }
 
             .cta-fixed {
-                bottom: 15px;
-                right: 15px;
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
+                bottom: 10px;
+                right: 10px;
+                padding: 0.6rem 1.2rem;
+                font-size: 0.8rem;
             }
         }
 
         @media (max-width: 480px) {
             .logo {
-                font-size: 1.1rem;
+                font-size: 1rem;
             }
 
             .logo-img {
-                width: 40px;
+                width: 36px;
             }
 
             .hero h1 {
@@ -713,7 +793,42 @@
             }
 
             .partner-logo {
-                width: 70px;
+                width: 80px;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 0.7rem 1.2rem;
+            }
+
+            .cta-fixed {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .footer-logo {
+                font-size: 1.2rem;
+            }
+
+            .footer-logo img {
+                width: 40px;
+            }
+
+            .footer-links a {
+                font-size: 0.75rem;
+            }
+
+            .social-links a {
+                font-size: 0.75rem;
+                padding: 0.3rem;
+            }
+
+            .social-links a i {
+                font-size: 0.55rem;
+            }
+
+            .footer-bottom {
+                font-size: 0.7rem;
             }
         }
     </style>
@@ -729,8 +844,8 @@
             <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <ul>
                 <li><a href="#home">Inicio</a></li>
-                <li><a href="#ecommerce">E-commerce</a></li>
-                <li><a href="#dental">Consultorios</a></li>
+                <li><a href="#ecommerce"><i class="fas fa-shopping-cart"></i> E-commerce</a></li>
+                <li><a href="#dental"><i class="fas fa-tooth"></i> Consultorios</a></li>
                 <li><a href="#how">Cómo Trabajamos</a></li>
                 <li><a href="#about">Sobre Mí</a></li>
                 <li><a href="#partners">Partners</a></li>
@@ -746,10 +861,10 @@
                 <h1>Aurora Point Digital – Estrategias inteligentes para escalar tu negocio digital</h1>
                 <p>Ayudo a marcas y consultorios a crecer con marketing claro, rentable y humano.</p>
                 <div class="hero-buttons">
-                    <a href="https://calendly.com/aurorapointdigital/nueva-reunion" target="_blank" class="btn btn-primary">
+                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
                         <i class="fas fa-shopping-cart"></i> Consultoría para E-commerce
                     </a>
-                    <a href="https://calendly.com/aurorapointdigital/consultorios-dentales" target="_blank" class="btn btn-secondary">
+                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
                         <i class="fas fa-tooth"></i> Consultoría para Consultorios
                     </a>
                 </div>
@@ -761,32 +876,45 @@
             <div class="container">
                 <h2 class="fade-in">Consultoría Digital Estratégica para E-commerce</h2>
                 <div class="section-intro fade-in">
-                    <p>Consultoría avanzada enfocada en optimizar tu embudo de ventas, campañas y posicionamiento. Si vendés insumos, productos o servicios online, te ayudo a detectar fugas, mejorar el ROI y escalar con estrategia.</p>
+                    <p>Optimizamos tu tienda online para aumentar ventas y mejorar el ROI.</p>
                 </div>
                 <div class="ecommerce-features fade-in">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
                         <h3>Auditoría de Campañas</h3>
-                        <p>Análisis profundo de tus anuncios para maximizar conversiones.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Análisis de anuncios</li>
+                            <li><i class="fas fa-check"></i> Optimización de ROI</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-search"></i></div>
-                        <h3>Optimización SEO/SEM</h3>
-                        <p>Mejora tu visibilidad en buscadores y atrae tráfico de calidad.</p>
+                        <h3>SEO/SEM</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Mejora en buscadores</li>
+                            <li><i class="fas fa-check"></i> Tráfico de calidad</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-retweet"></i></div>
-                        <h3>Estrategias de Remarketing</h3>
-                        <p>Recupera clientes potenciales con campañas personalizadas.</p>
+                        <h3>Remarketing</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Campañas personalizadas</li>
+                            <li><i class="fas fa-check"></i> Recuperación de leads</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-rocket"></i></div>
                         <h3>Plan de Crecimiento</h3>
-                        <p>Estrategia clara para escalar tu tienda en 3-6 meses.</p>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Estrategia a 3-6 meses</li>
+                            <li><i class="fas fa-check"></i> Escalabilidad</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="fade-in" style="text-align: center;">
-                    <a href="https://calendly.com/aurorapointdigital/nueva-reunion" target="_blank" class="btn btn-primary">Agendar Consultoría (USD 250 – 400) <i class="fas fa-calendar-check"></i></a>
+                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría ($250) <i class="fas fa-calendar-check"></i></a>
+                    <a href="/ecommerce-details" class="btn btn-secondary">Ver más <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -794,34 +922,97 @@
         <!-- DENTAL SECTION -->
         <section id="dental" class="dental-section">
             <div class="container">
-                <h2 class="fade-in">Consultoría Inicial Gratuita para Consultorios</h2>
+                <h2 class="fade-in">Consultoría Inicial para Consultorios</h2>
                 <div class="section-intro fade-in">
-                    <p>Sesión personalizada de 30 minutos para analizar tu presencia digital y cómo atraer más pacientes con campañas efectivas. Durante la llamada vas a descubrir qué estrategias aplican mejor a tu caso y, si querés avanzar, podés contratar el servicio completo.</p>
+                    <p>Sesión de 60 minutos para analizar tu presencia digital y atraer más pacientes.</p>
                 </div>
                 <div class="dental-features fade-in">
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-ad"></i></div>
-                        <h3>Publicidad en Meta Ads</h3>
-                        <p>Campañas efectivas para captar pacientes en redes sociales.</p>
+                        <h3>Meta Ads</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Campañas efectivas</li>
+                            <li><i class="fas fa-check"></i> Captación de pacientes</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-star"></i></div>
-                        <h3>Branding y Presencia Digital</h3>
-                        <p>Construye una imagen profesional que genere confianza.</p>
+                        <h3>Branding Digital</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Imagen profesional</li>
+                            <li><i class="fas fa-check"></i> Genera confianza</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                        <h3>Automatización de Agendamientos</h3>
-                        <p>Optimiza citas con herramientas de IA y flujos automáticos.</p>
+                        <h3>Automatización</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Agendamiento automático</li>
+                            <li><i class="fas fa-check"></i> Flujos con IA</li>
+                        </ul>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon"><i class="fas fa-funnel-dollar"></i></div>
-                        <h3>Embudos de Captación</h3>
-                        <p>Estrategias para convertir leads en pacientes leales.</p>
+                        <h3>Embudos</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Conversión de leads</li>
+                            <li><i class="fas fa-check"></i> Pacientes leales</li>
+                        </ul>
                     </div>
                 </div>
                 <div class="fade-in" style="text-align: center;">
-                    <a href="https://calendly.com/aurorapointdigital/consultorios-dentales" target="_blank" class="btn btn-primary">Agendar Llamada Gratuita (30 min) <i class="fas fa-calendar-check"></i></a>
+                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría ($250) <i class="fas fa-calendar-check"></i></a>
+                    <a href="/dental-details" class="btn btn-secondary">Ver más <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PACKAGES SECTION -->
+        <section id="packages" class="packages-section">
+            <div class="container">
+                <h2 class="fade-in">Nuestros Servicios Destacados</h2>
+                <div class="section-intro fade-in">
+                    <p>Soluciones diseñadas para maximizar tus resultados.</p>
+                </div>
+                <div class="packages-grid fade-in">
+                    <div class="package-card">
+                        <div class="package-icon"><i class="fas fa-shopping-cart"></i></div>
+                        <h3>Auditoría E-commerce</h3>
+                        <div class="package-price">$250</div>
+                        <div class="package-period">Pago único</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Análisis completo de tu tienda</li>
+                            <li><i class="fas fa-check"></i> Plan estratégico de 3 meses</li>
+                            <li><i class="fas fa-check"></i> Optimización SEO y anuncios</li>
+                        </ul>
+                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Solicitar Ahora <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-icon"><i class="fas fa-tooth"></i></div>
+                        <h3>Consultoría Dental</h3>
+                        <div class="package-price">$250</div>
+                        <div class="package-period">60 minutos</div>
+                        <ul class="package-features">
+                            <li><i class="fas fa-check"></i> Análisis de presencia digital</li>
+                            <li><i class="fas fa-check"></i> Estrategia personalizada</li>
+                            <li><i class="fas fa-check"></i> Opciones de servicio completo</li>
+                        </ul>
+                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNERS SECTION -->
+        <section id="partners" class="partners-section">
+            <div class="container">
+                <h2 class="fade-in">Nuestros Socios</h2>
+                <div class="partners-grid fade-in">
+                    <img src="google-partners-.png" alt="Google Partners" class="partner-logo" loading="lazy">
+                    <img src="Klaviyo-partner-.png" alt="Klaviyo Partner" class="partner-logo" loading="lazy">
+                    <img src="meta-business-partner.jpg" alt="Meta Business Partner" class="partner-logo" loading="lazy">
+                    <img src="shopify-partners-.jpg" alt="Shopify Partners" class="partner-logo" loading="lazy">
+                    <img src="tiktok partner.png" alt="TikTok Partner" class="partner-logo" loading="lazy">
                 </div>
             </div>
         </section>
@@ -833,60 +1024,49 @@
                 <div class="how-grid fade-in">
                     <div class="how-card">
                         <div class="how-icon"><i class="fas fa-search"></i></div>
-                        <h3>Auditoría o Consultoría Inicial</h3>
-                        <p>Analizamos tu situación actual para identificar oportunidades clave.</p>
+                        <h3>Consultoría Inicial</h3>
+                        <p>Identificamos oportunidades clave para tu negocio.</p>
                     </div>
                     <div class="how-card">
                         <div class="how-icon"><i class="fas fa-lightbulb"></i></div>
                         <h3>Estrategia Personalizada</h3>
-                        <p>Diseñamos un plan específico para tus objetivos y presupuesto.</p>
+                        <p>Plan diseñado para tus metas específicas.</p>
                     </div>
                     <div class="how-card">
                         <div class="how-icon"><i class="fas fa-play"></i></div>
                         <h3>Ejecución y Seguimiento</h3>
-                        <p>Implementamos y optimizamos continuamente para resultados reales.</p>
+                        <p>Implementamos y optimizamos continuamente.</p>
                     </div>
                 </div>
                 <div class="how-highlight fade-in">
                     En Aurora Point no hacemos magia. Aplicamos método, análisis y constancia.
                 </div>
-                <div class="fade-in" style="text-align: center; margin-top: 1.5rem;">
-                    <a href="#contact" class="btn btn-primary">Comenzar mi proceso <i class="fas fa-arrow-right"></i></a>
+                <div class="fade-in" style="text-align: center;">
+                    <a href="#contact" class="btn btn-primary">Comenzar Ahora <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT ME SECTION -->
+        <!-- ABOUT SECTIONS -->
         <section id="about" class="about-sections">
             <div class="container">
                 <h2 class="fade-in">Sobre Mí – Álvaro Álvarez</h2>
                 <div class="about-me-content fade-in">
-                    <img src="alvaro.jpg" alt="Álvaro Álvarez, Fundador de Aurora Point" class="about-me-image" loading="lazy">
+                    <img src="imagen.png" alt="Álvaro Álvarez, Fundador de Aurora Point" class="about-me-image" loading="lazy">
                     <div class="about-me-text">
-                        <p>Soy Álvaro Álvarez, fundador de Aurora Point. Acompaño a marcas y consultorios en su proceso de crecimiento digital con estrategias claras, medibles y sin falsas promesas. Me enfoco en el trabajo constante, la optimización y la comunicación humana.</p>
-                        <p><a href="#how">Conocer más sobre mi método</a></p>
+                        <p>Soy Álvaro Álvarez, el fundador de Aurora Point. Con una pasión por el crecimiento digital y años de experiencia en marketing B2B dental, lidero proyectos que transforman negocios de e-commerce mediante dedicación, trabajo inteligente y valorando tu tiempo en Shopify y WooCommerce.</p>
+                        <p>Mi enfoque combina creatividad, datos y tecnología para ofrecer soluciones personalizadas que se construyen con tiempo y esfuerzo. Estoy aquí para guiarte en cada paso hacia tus objetivos en insumos dentales.</p>
+                        <a href="#how" class="btn btn-secondary btn-my-method" style="background: var(--primary-color); color: var(--light-text); border: none;">Mi método <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
-                <h2 class="fade-in" style="margin-top: 4rem;">Sobre Aurora Point</h2>
+                <h2 class="fade-in">Sobre Aurora Point</h2>
                 <div class="about-content fade-in">
-                    <img src="aurora-point.jpg" alt="Sobre Aurora Point" class="about-image" loading="lazy">
+                    <img src="SOBRE AURORA POINT.png" alt="Sobre Aurora Point" class="about-image" loading="lazy">
                     <div class="about-text">
-                        <p>Aurora Point nació con el propósito de ayudar a negocios digitales y consultorios a crecer con inteligencia, diseño y estrategia. Creemos en el progreso sostenido, la transparencia y la evolución constante.</p>
+                        <p>Aurora Point es el resultado de un equipo comprometido con transformar y escalar negocios de e-commerce B2B dental. Con más de 10 años de experiencia, combinamos marketing digital avanzado (SEO, SEM, CRO), inteligencia artificial y diseño de landing pages optimizadas para resinas e implantes, con trabajo inteligente valorando tu tiempo.</p>
+                        <p>Nos integramos con nuestros clientes para generar progreso medible y sostenible mediante dedicación y paciencia, incentivando Shopify para escala. Nuestra misión es apoyarte en el camino al siguiente nivel.</p>
+                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">¡Agenda una Reunión! <i class="fas fa-calendar-check"></i></a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PARTNERS SECTION -->
-        <section id="partners" class="partners-section">
-            <div class="container">
-                <h2 class="fade-in">Nuestros Socios</h2>
-                <div class="partners-grid fade-in">
-                    <img src="shopify.png" alt="Shopify Partner" class="partner-logo">
-                    <img src="klaviyo.png" alt="Klaviyo Partner" class="partner-logo">
-                    <img src="google.png" alt="Google Partner" class="partner-logo">
-                    <img src="meta.png" alt="Meta Partner" class="partner-logo">
-                    <img src="tiktok.png" alt="TikTok Partner" class="partner-logo">
                 </div>
             </div>
         </section>
@@ -898,11 +1078,11 @@
                 <div class="contact-content fade-in">
                     <p>Agendá una consultoría ahora y empecemos a construir tu siguiente etapa.</p>
                     <div class="contact-buttons">
-                        <a href="https://calendly.com/aurorapointdigital/nueva-reunion" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-shopping-cart"></i> Consultoría E-commerce (paga)
+                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i> Consultoría E-commerce ($250)
                         </a>
-                        <a href="https://calendly.com/aurorapointdigital/consultorios-dentales" target="_blank" class="btn btn-secondary">
-                            <i class="fas fa-tooth"></i> Consultoría Consultorios (gratis)
+                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
+                            <i class="fas fa-tooth"></i> Consultoría Consultorios ($250)
                         </a>
                     </div>
                     <div class="contact-form">
@@ -910,15 +1090,15 @@
                         <form id="contact-form">
                             <div class="form-group">
                                 <label for="name">Nombre</label>
-                                <input type="text" id="name" class="form-control" required>
+                                <input type="text" id="name" name="name" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="message">Mensaje</label>
-                                <textarea id="message" class="form-control" required></textarea>
+                                <textarea id="message" name="message" class="form-control" required></textarea>
                             </div>
                             <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
                         </form>
@@ -945,7 +1125,6 @@
             <div class="social-links">
                 <a href="https://instagram.com/aurorapointdigital" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> Instagram</a>
                 <a href="https://linkedin.com/in/alvaroalvarezmelo" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="https://youtube.com/@aurorapointdigital" target="_blank" rel="noopener noreferrer" class="youtube"><i class="fab fa-youtube"></i> YouTube</a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -954,7 +1133,27 @@
     </footer>
 
     <!-- CTA FIJO -->
-    <a href="#contact" class="cta-fixed">Agendá tu reunión</a>
+    <a href="#contact" class="cta-fixed">Agendar Ahora</a>
+
+    <!-- Klaviyo Script -->
+    <script>
+        window.klaviyo = window.klaviyo || [];
+        function initKlaviyo() {
+            if (window.klaviyo && window.klaviyo.push) {
+                window.klaviyo.push(['account', 'SswK4J']);
+            } else {
+                setTimeout(initKlaviyo, 100);
+            }
+        }
+        (function() {
+            var klaviyoScript = document.createElement('script');
+            klaviyoScript.type = 'text/javascript';
+            klaviyoScript.async = true;
+            klaviyoScript.src = 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SswK4J';
+            klaviyoScript.onload = initKlaviyo;
+            document.head.appendChild(klaviyoScript);
+        })();
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -996,12 +1195,31 @@
                 });
             });
 
-            // Contact Form Handling
+            // Contact Form Handling with Klaviyo
             const form = document.getElementById('contact-form');
             form?.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-                form.reset();
+                const formData = new FormData(form);
+                const name = formData.get('name');
+                const email = formData.get('email');
+                const message = formData.get('message');
+
+                function submitToKlaviyo() {
+                    if (window.klaviyo && window.klaviyo.push) {
+                        window.klaviyo.push(['identify', {
+                            $email: email,
+                            $first_name: name
+                        }]);
+                        window.klaviyo.push(['track', 'Contact Form Submission', {
+                            Message: message
+                        }]);
+                        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+                        form.reset();
+                    } else {
+                        setTimeout(submitToKlaviyo, 100);
+                    }
+                }
+                submitToKlaviyo();
             });
         });
     </script>
