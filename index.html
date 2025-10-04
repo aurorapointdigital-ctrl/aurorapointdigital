@@ -30,7 +30,7 @@
             --border-radius-lg: 14px;
             --border-radius-pill: 9999px;
             --header-height: 60px; /* Menú más delgado */
-            --section-spacing: 3.5rem; /* Espaciado más compacto */
+            --section-spacing: 5rem; /* Espaciado generoso */
         }
 
         *, *::before, *::after {
@@ -225,6 +225,17 @@
             height: 100%;
             background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"%3E%3Cg fill="none" stroke="%23ffffff" stroke-opacity="0.05" stroke-width="0.4"%3E%3Cpath d="M0 500h1000M500 0v1000"/%3E%3C/g%3E%3C/svg%3E') repeat;
             animation: float 35s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Overlay oscuro para mejor contraste */
             z-index: 1;
         }
 
@@ -708,6 +719,8 @@
 
         .partner-logo {
             width: 100px;
+            height: 50px;
+            object-fit: contain;
             filter: grayscale(30%) opacity(0.85);
             transition: all 0.2s ease;
         }
@@ -1207,22 +1220,6 @@
     </style>
 </head>
 <body>
-    <!-- KLAVIYO JAVASCRIPT SNIPPET -->
-    <script type="text/javascript" async src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SswK4J"></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            if (typeof klaviyo !== 'undefined') {
-                klaviyo.init({
-                    public_key: 'SswK4J', // Reemplaza con tu clave pública real si es diferente
-                    platform: 'Custom'
-                });
-                klaviyo.push(['track', 'Viewed Page', { page: window.location.pathname }]);
-            } else {
-                console.warn('Klaviyo script no se cargó correctamente. Verifica la clave pública o la conexión a static.klaviyo.com');
-            }
-        });
-    </script>
-
     <!-- HEADER -->
     <header id="header">
         <nav aria-label="Menú principal">
@@ -1265,10 +1262,10 @@
                 <p>Especialistas en auditorías para e-commerce dental B2B y estrategias de marketing para consultorios odontológicos, centros de estética y cirujanos.</p>
                 <div class="hero-buttons">
                     <a href="#ecommerce" class="btn btn-primary btn-ecommerce">
-                        <i class="fas fa-shopping-cart"></i> Auditoría E-commerce
+                        <i class="fas fa-shopping-cart"></i> Ver soluciones para tiendas
                     </a>
                     <a href="#dental" class="btn btn-secondary btn-services">
-                        <i class="fas fa-tooth"></i> Servicios Odontológicos
+                        <i class="fas fa-tooth"></i> Estrategias para clínicas
                     </a>
                 </div>
             </div>
@@ -1377,7 +1374,7 @@
                         </ul>
                         <a href="https://calendly.com/aurorapointdigital/consultorios-dentales" target="_blank" class="service-cta">Agendar Asesoría <i class="fas fa-calendar-check"></i></a>
                     </div>
-                </div>
+                </ul>
             </div>
         </section>
 
@@ -1433,25 +1430,6 @@
                     <p>Soluciones adaptadas a las necesidades específicas de consultorios odontológicos, centros de estética y e-commerce dentales.</p>
                 </div>
                 <div class="packages-grid">
-                    <div class="package-card fade-in">
-                        <div class="package-icon">
-                            <i class="fas fa-user-md"></i>
-                        </div>
-                        <h3>Plan Básico Salud & Estética</h3>
-                        <div class="package-price">$599/mes</div>
-                        <div class="package-period">Pago mensual</div>
-                        <ul class="package-features">
-                            <li><i class="fas fa-check"></i> Estrategia Meta Ads</li>
-                            <li><i class="fas fa-check"></i> Hasta 4 videos editados por mes</li>
-                            <li><i class="fas fa-check"></i> Copywriting para campañas</li>
-                            <li><i class="fas fa-check"></i> Mejora de Google My Business</li>
-                            <li><i class="fas fa-check"></i> Landing page básica</li>
-                            <li><i class="fas fa-check"></i> 4-6 anuncios activos simultáneos</li>
-                            <li><i class="fas fa-check"></i> Email Básico</li>
-                            <li><i class="fas fa-check"></i> Reporte mensual de resultados</li>
-                        </ul>
-                        <a href="https://calendly.com/aurorapointdigital/consultorios-dentales" target="_blank" class="package-cta">Agendar Asesoría <i class="fas fa-calendar-check"></i></a>
-                    </div>
                     <div class="package-card featured fade-in">
                         <div class="package-badge">Más Popular</div>
                         <div class="package-icon">
@@ -1491,6 +1469,7 @@
                         <a href="https://calendly.com/aurorapointdigital/nueva-reunion" target="_blank" class="package-cta">Comprar Auditoría <i class="fas fa-shopping-cart"></i></a>
                     </div>
                 </div>
+                <a href="#contact" class="btn btn-primary">Ver planes completos</a>
             </div>
         </section>
 
@@ -1600,7 +1579,7 @@
             </div>
         </section>
 
-        <!-- SECCIÓN CONTACTO CON FORMULARIO KLAVIYO -->
+        <!-- SECCIÓN CONTACTO -->
         <section id="contact" class="contact-section">
             <div class="container">
                 <h2 class="fade-in">Hablemos de tu Proyecto Dental</h2>
@@ -1624,20 +1603,11 @@
                                 <input type="email" id="email" class="form-control" required>
                             </div>
                             <div class="form-group">
-                                <label for="whatsapp">Tu Número de WhatsApp (Opcional)</label>
-                                <input type="text" id="whatsapp" class="form-control">
-                            </div>
-                            <div class="form-group">
                                 <label for="message">Cuéntanos sobre tu e-com dental (Shopify/Woo) y objetivos...</label>
                                 <textarea id="message" class="form-control" required></textarea>
                             </div>
-                            <button type="submit" class="submit-btn">Enviar Mensaje <i class="fas fa-paper-plane"></i></button>
+                            <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
                         </form>
-                        <div class="klaviyo-form-container">
-                            <h3>Suscríbete a Nuestro Newsletter</h3>
-                            <div id="klaviyo-form-XXXXXX"></div>
-                            <!-- Reemplaza el div anterior con el embed code de tu formulario de Klaviyo -->
-                        </div>
                     </div>
                 </div>
             </div>
@@ -1669,6 +1639,39 @@
             <p>© <span id="current-year">2025</span> Aurora Point. Todos los derechos reservados.</p>
         </div>
     </footer>
+
+    <!-- CTA FIJO -->
+    <a href="#contact" class="cta-fixed">Agendar Ahora</a>
+
+    <style>
+        /* CTA FIJO */
+        .cta-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 2rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            box-shadow: 0 2px 8px var(--shadow-medium);
+            transition: transform 0.2s ease;
+            z-index: 1000;
+        }
+
+        .cta-fixed:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 480px) {
+            .cta-fixed {
+                bottom: 10px;
+                right: 10px;
+                padding: 0.8rem 1.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
