@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Aurora Point Digital: Consultoría estratégica para e-commerce dental y marketing para consultorios odontológicos y clínicas. Agendá tu reunión hoy.">
-    <meta name="keywords" content="Aurora Point Digital, e-commerce dental, marketing odontológico, consultoría digital, Meta Ads, Shopify, WooCommerce, captación de pacientes">
+    <meta name="description" content="Marketing Digital para Consultorios Odontológicos, Centros de Estética y Cirujanos">
+    <meta name="keywords" content="marketing dental, marketing estético, consultoría digital, captación de pacientes">
     <meta name="author" content="Álvaro Álvarez - Aurora Point Digital">
-    <title>Aurora Point Digital - Estrategias para E-commerce y Consultorios</title>
+    <title>Aurora Point Digital - Marketing para Consultorios</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #3b82f6; /* Azul profesional */
+            --primary-color: #3b82f6;
             --primary-darker: #2563eb;
-            --secondary-color: #6ee7b7; /* Verde claro */
-            --accent-color: #e6f3fa; /* Azul claro para fondos */
+            --secondary-color: #6ee7b7;
+            --accent-color: #e6f3fa;
             --light-bg: #f8fafc;
             --white-bg: #ffffff;
             --dark-text: #0f172a;
@@ -27,9 +27,10 @@
             --font-family-body: 'Inter', sans-serif;
             --border-radius-sm: 6px;
             --border-radius-md: 10px;
+            --border-radius-lg: 14px;
             --border-radius-pill: 9999px;
             --header-height: 60px;
-            --section-spacing: 6rem;
+            --section-spacing: 3.5rem;
         }
 
         *, *::before, *::after {
@@ -46,22 +47,22 @@
         body {
             font-family: var(--font-family-body);
             color: var(--body-text);
-            line-height: 1.6;
+            line-height: 1.65;
             background-color: var(--light-bg);
             overflow-x: hidden;
             font-size: 0.95rem;
             font-weight: 400;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             color: var(--dark-text);
             line-height: 1.25;
-            font-family: var(--font-family-heading);
             font-weight: 600;
+            font-family: var(--font-family-heading);
         }
 
-        h1 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); margin-bottom: 1.5rem; }
-        h2 { font-size: clamp(1.6rem, 3.5vw, 2rem); margin-bottom: 1.5rem; text-align: center; }
+        h1 { font-size: clamp(2rem, 4.5vw, 3rem); margin-bottom: 1.25rem; }
+        h2 { font-size: clamp(1.6rem, 3.5vw, 2rem); margin-bottom: 1.75rem; text-align: center; }
         h3 { font-size: clamp(1.15rem, 2.5vw, 1.4rem); margin-bottom: 0.75rem; }
         p { margin-bottom: 0.75rem; font-weight: 400; }
         a { color: var(--primary-color); text-decoration: none; transition: color 0.2s ease; }
@@ -70,9 +71,10 @@
         ul { list-style: none; }
 
         .container {
-            max-width: 1100px;
+            max-width: 1240px;
             margin: 0 auto;
             padding: 0 1rem;
+            width: 100%;
         }
 
         /* HEADER */
@@ -84,7 +86,8 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 0.5rem 0;
+            padding: 0.4rem 0;
+            transition: all 0.3s ease;
         }
 
         header.scrolled {
@@ -96,23 +99,23 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1100px;
+            max-width: 1240px;
             margin: 0 auto;
-            padding: 0 1.2rem;
+            padding: 0 1rem;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--primary-color);
             font-family: var(--font-family-heading);
         }
 
         .logo-img {
-            width: 40px;
-            margin-right: 0.5rem;
+            width: 48px;
+            margin-right: 0.6rem;
             transition: transform 0.3s ease;
         }
 
@@ -123,19 +126,19 @@
         nav ul {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.8rem;
         }
 
         nav ul li a {
             color: var(--dark-text);
             font-weight: 500;
-            font-size: 0.85rem;
-            padding: 0.5rem 0.8rem;
-            border-radius: var(--border-radius-sm);
-            transition: all 0.2s ease;
+            font-size: 0.9rem;
+            padding: 0.5rem 0.7rem;
             display: flex;
             align-items: center;
             gap: 0.3rem;
+            transition: all 0.2s ease;
+            border-radius: var(--border-radius-sm);
         }
 
         nav ul li a:hover {
@@ -145,23 +148,24 @@
 
         .menu-toggle {
             display: none;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             background: none;
             border: none;
             color: var(--dark-text);
             cursor: pointer;
+            padding: 0.4rem;
         }
 
         /* HERO SECTION */
         .hero {
-            position: relative;
-            min-height: 70vh;
+            background: linear-gradient(145deg, var(--primary-darker) 0%, var(--primary-color) 70%, var(--secondary-color) 100%);
+            min-height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: var(--header-height) 1rem 2rem;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            position: relative;
+            padding: var(--header-height) 1rem 1.5rem;
             overflow: hidden;
         }
 
@@ -172,12 +176,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"%3E%3Cg fill="none" stroke="%23ffffff" stroke-opacity="0.05" stroke-width="0.4"%3E%3Cpath d="M0 500h1000M500 0v1000"/%3E%3C/g%3E%3C/svg%3E') repeat;
+            animation: float 35s ease-in-out infinite;
             z-index: 1;
         }
 
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(5px, -5px); }
+        }
+
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             padding: 1.5rem;
             z-index: 2;
         }
@@ -185,15 +195,16 @@
         .hero h1 {
             color: var(--light-text);
             font-weight: 700;
-            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-size: clamp(2rem, 5vw, 3.25rem);
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         .hero p {
-            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            font-size: clamp(0.95rem, 2.2vw, 1.1rem);
             color: var(--light-text);
-            max-width: 600px;
-            margin: 0 auto 2rem;
+            max-width: 580px;
+            margin: 0 auto 1.75rem;
+            font-weight: 400;
         }
 
         .hero-buttons {
@@ -204,10 +215,10 @@
         }
 
         .btn {
-            padding: 0.8rem 2rem;
+            padding: 0.75rem 1.6rem;
             border-radius: var(--border-radius-pill);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             border: none;
             cursor: pointer;
             display: inline-flex;
@@ -220,7 +231,7 @@
         .btn-primary {
             background: var(--secondary-color);
             color: var(--dark-text);
-            box-shadow: 0 2px 8px var(--shadow-light);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
         }
 
         .btn-primary:hover {
@@ -231,307 +242,835 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--dark-text);
-            border: 1.5px solid var(--primary-color);
-            font-weight: 500;
+            color: var(--light-text);
+            border: 1.5px solid var(--light-text);
         }
 
         .btn-secondary:hover {
-            background: var(--primary-darker);
-            color: var(--light-text);
+            background: var(--light-text);
+            color: var(--primary-darker);
             transform: translateY(-2px);
         }
 
-        .btn-my-method:hover {
-            background: var(--secondary-color);
-            color: var(--dark-text);
+        .btn-consult {
+            background: #ff6b6b;
+            color: white;
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
         }
 
-        /* E-COMMERCE SECTION */
-        .ecommerce-section {
-            padding: var(--section-spacing) 1rem;
-            background-color: var(--white-bg);
+        .btn-consult:hover {
+            background: #ff5252;
+            transform: translateY(-2px);
         }
 
-        .section-intro {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .section-intro p {
-            font-size: 1rem;
-            color: var(--body-text);
-        }
-
-        .ecommerce-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .feature-card {
-            background: var(--light-bg);
-            border-radius: var(--border-radius-md);
-            padding: 1.5rem;
-            text-align: left;
-            box-shadow: 0 2px 6px var(--shadow-light);
-            transition: all 0.2s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px var(--shadow-medium);
-        }
-
-        .feature-icon {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.1rem;
-        }
-
-        .feature-card ul {
-            margin-top: 0.5rem;
-        }
-
-        .feature-card li {
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .feature-card li i {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        /* DENTAL SECTION */
-        .dental-section {
+        /* MINI-CONSULTORIA SECTION */
+        .mini-consultoria-section {
             padding: var(--section-spacing) 1rem;
             background-color: var(--accent-color);
         }
 
-        .dental-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
+        .mini-consultoria-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mini-consultoria-content h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .mini-consultoria-description {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .mini-consultoria-description p {
+            font-size: 1rem;
+            color: var(--body-text);
+            font-style: italic;
             margin-bottom: 2rem;
         }
 
-        /* PACKAGES SECTION */
-        .packages-section {
+        .mini-consultoria-objetivo {
+            background: var(--white-bg);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px var(--shadow-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mini-consultoria-objetivo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .mini-consultoria-objetivo h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .mini-consultoria-objetivo h3 i {
+            font-size: 1.5rem;
+        }
+
+        .mini-consultoria-objetivo ul {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .mini-consultoria-objetivo li {
+            padding: 1rem;
+            border-radius: var(--border-radius-sm);
+            background: var(--light-bg);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .mini-consultoria-objetivo li:hover {
+            background: var(--white-bg);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px var(--shadow-light);
+        }
+
+        .mini-consultoria-objetivo li i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            background: var(--accent-color);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .mini-consultoria-objetivo li span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .mini-consultoria-cta {
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.75rem 1.6rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            margin-top: 2rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .mini-consultoria-cta:hover {
+            background: var(--primary-darker);
+            color: var(--light-text);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+
+        .mini-consultoria-cta i {
+            margin-left: 0.4rem;
+            transition: transform 0.2s ease;
+        }
+
+        .mini-consultoria-cta:hover i {
+            transform: translateX(2px);
+        }
+
+        /* SERVICIOS SECTION */
+        .servicios-section {
             padding: var(--section-spacing) 1rem;
             background-color: var(--white-bg);
         }
 
-        .packages-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            max-width: 1100px;
-            margin: 0 auto;
+        .servicios-header {
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
-        .package-card {
+        .servicios-header h2 {
+            font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+        }
+
+        .servicios-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .servicios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .servicio-card {
             background: var(--light-bg);
             border-radius: var(--border-radius-md);
+            padding: 1.8rem;
+            box-shadow: 0 2px 6px var(--shadow-light);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .servicio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--primary-color);
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+        }
+
+        .servicio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--shadow-medium);
+        }
+
+        .servicio-card:hover::before {
+            transform: scaleY(1);
+        }
+
+        .servicio-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        .servicio-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--dark-text);
+        }
+
+        .servicio-features {
+            margin-bottom: 1.5rem;
+            text-align: left;
+            flex-grow: 1;
+        }
+
+        .servicio-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.9rem;
+        }
+
+        .servicio-features li:last-child {
+            border-bottom: none;
+        }
+
+        .servicio-features li i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .servicio-badge {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .plan-cta {
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px var(--shadow-light);
+            display: inline-block;
+            text-align: center;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .plan-cta:hover {
+            background: var(--primary-darker);
+            color: var(--light-text);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
+        }
+
+        .plan-profesional .plan-cta {
+            background: var(--primary-color);
+        }
+
+        .plan-profesional .plan-cta:hover {
+            background: var(--primary-darker);
+            color: var(--light-text);
+        }
+
+        .plan-premium .plan-cta {
+            background: #ff6b6b;
+        }
+
+        .plan-premium .plan-cta:hover {
+            background: #ff5252;
+            color: white;
+        }
+
+        /* PLANES SECTION */
+        .planes-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--accent-color);
+            position: relative;
+        }
+
+        .planes-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--primary-color), #ff6b6b, var(--secondary-color));
+        }
+
+        .planes-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .planes-header h2 {
+            font-size: clamp(2rem, 4.5vw, 2.8rem);
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .planes-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #ff6b6b);
+            border-radius: 2px;
+        }
+
+        .planes-header .subtitle {
+            font-size: 1.2rem;
+            color: var(--dark-text);
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .planes-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+            color: var(--body-text);
+        }
+
+        .planes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-card {
+            background: var(--white-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.8rem;
+            box-shadow: 0 2px 6px var(--shadow-light);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--shadow-medium);
+        }
+
+        .plan-card.plan-profesional {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.03);
+        }
+
+        .plan-card.plan-premium {
+            border: 2px solid #ff6b6b;
+        }
+
+        .plan-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .plan-badge {
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 0.8rem;
+        }
+
+        .plan-profesional .plan-badge {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .plan-premium .plan-badge {
+            background: #ff6b6b;
+            color: white;
+        }
+
+        .plan-price {
+            display: none; /* Ocultamos el precio */
+        }
+
+        .plan-features h4 {
+            font-size: 1rem;
+            margin: 1.2rem 0 0.6rem;
+            color: var(--dark-text);
+            font-weight: 600;
+        }
+
+        .plan-features ul {
+            margin-bottom: 1rem;
+        }
+
+        .plan-features li {
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.85rem;
+        }
+
+        .plan-features li:last-child {
+            border-bottom: none;
+        }
+
+        .plan-features li i {
+            color: var(--secondary-color);
+            margin-right: 0.5rem;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+        }
+
+        .plan-profesional .plan-features li i {
+            color: var(--primary-color);
+        }
+
+        .plan-premium .plan-features li i {
+            color: #ff6b6b;
+        }
+
+        .planes-note {
+            text-align: center;
+            margin-top: 2rem;
             padding: 1.5rem;
+            background: var(--white-bg);
+            border-radius: var(--border-radius-md);
+        }
+
+        .planes-note p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .planes-note i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .btn-consult {
+            background: #ff6b6b;
+            color: white;
+            padding: 0.75rem 1.6rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+            display: inline-block;
+        }
+
+        .btn-consult:hover {
+            background: #ff5252;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        /* PORQUE SECTION */
+        .porque-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--white-bg);
+        }
+
+        .porque-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        .porque-card {
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.6rem;
             text-align: center;
             box-shadow: 0 2px 6px var(--shadow-light);
             transition: all 0.2s ease;
         }
 
-        .package-card:hover {
-            transform: translateY(-3px);
+        .porque-card:hover {
+            transform: scale(1.02);
             box-shadow: 0 4px 10px var(--shadow-medium);
         }
 
-        .package-icon {
+        .porque-icon {
             font-size: 2rem;
             color: var(--secondary-color);
             margin-bottom: 0.75rem;
         }
 
-        .package-price {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin: 0.5rem 0;
+        .porque-card h3 {
+            font-size: 1.25rem;
         }
 
-        .package-period {
-            font-size: 0.8rem;
-            color: var(--body-text);
+        .porque-card p {
+            font-size: 0.85rem;
         }
 
-        .package-features li {
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-
-        .package-features li i {
-            color: var(--secondary-color);
-            margin-right: 0.5rem;
-            font-size: 0.8rem;
-        }
-
-        /* PARTNERS SECTION */
-        .partners-section {
-            padding: var(--section-spacing) 1rem;
-            background-color: var(--light-bg);
-        }
-
-        .partners-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .partner-logo {
-            width: 120px;
-            height: 60px;
-            object-fit: contain;
-            filter: grayscale(50%);
-            transition: all 0.3s ease;
-        }
-
-        .partner-logo:hover {
-            filter: grayscale(0%);
-            transform: scale(1.1);
-        }
-
-        /* HOW WE WORK SECTION */
-        .how-section {
-            padding: var(--section-spacing) 1rem;
-            background-color: var(--white-bg);
-        }
-
-        .how-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .how-card {
-            background: var(--light-bg);
-            border-radius: var(--border-radius-md);
-            padding: 1.5rem;
-            text-align: center;
-            box-shadow: 0 2px 6px var(--shadow-light);
-            transition: all 0.2s ease;
-        }
-
-        .how-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 4px 10px var(--shadow-medium);
-        }
-
-        .how-icon {
-            font-size: 1.8rem;
-            color: var(--secondary-color);
-            margin-bottom: 0.75rem;
-        }
-
-        .how-card h3 {
-            font-size: 1.1rem;
-        }
-
-        .how-card p {
-            font-size: 0.9rem;
-        }
-
-        .how-highlight {
-            text-align: center;
-            margin: 2rem 0;
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--primary-color);
-        }
-
-        /* ABOUT SECTIONS */
-        .about-sections {
+        /* SOCIOS SECTION */
+        .socios-section {
             padding: var(--section-spacing) 1rem;
             background-color: var(--accent-color);
         }
 
-        .about-me-content, .about-content {
-            max-width: 900px;
-            margin: 0 auto 3rem;
+        .socios-content {
+            text-align: center;
+        }
+
+        .socios-grid {
             display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             align-items: center;
-            gap: 1.5rem;
-            text-align: left;
+            gap: 1.25rem;
+            margin-top: 2rem;
         }
 
-        .about-me-content {
-            flex-direction: row-reverse;
+        .partner-logo {
+            width: 100px;
+            filter: grayscale(30%) opacity(0.85);
+            transition: all 0.2s ease;
         }
 
-        .about-image, .about-me-image {
-            width: 200px;
-            border-radius: var(--border-radius-md);
-            box-shadow: 0 2px 6px var(--shadow-light);
+        .partner-logo:hover {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.04);
         }
 
-        .about-text, .about-me-text {
-            font-size: 0.9rem;
-            color: var(--body-text);
-        }
-
-        /* CONTACT SECTION */
-        .contact-section {
+        /* SOBRE MI SECTION */
+        .sobre-mi-section {
             padding: var(--section-spacing) 1rem;
             background-color: var(--white-bg);
         }
 
-        .contact-content {
-            max-width: 600px;
+        .sobre-mi-content {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .sobre-mi-text {
+            flex: 1;
+        }
+
+        .sobre-mi-text h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-mi-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .sobre-mi-image {
+            width: 240px;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px var(--shadow-medium);
+            flex-shrink: 0;
+        }
+
+        /* SOBRE AURORA SECTION */
+        .sobre-aurora-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--accent-color);
+        }
+
+        .sobre-aurora-content {
+            max-width: 880px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+        }
+
+        .sobre-aurora-image {
+            width: 240px;
+            border-radius: var(--border-radius-md);
+            box-shadow: 0 4px 15px var(--shadow-medium);
+            flex-shrink: 0;
+        }
+
+        .sobre-aurora-text {
+            flex: 1;
+        }
+
+        .sobre-aurora-text h2 {
+            font-size: clamp(1.6rem, 3.5vw, 2rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .sobre-aurora-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        /* PAGINAS SECTION */
+        .paginas-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--white-bg);
+        }
+
+        .paginas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .pagina-card {
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+            overflow: hidden;
+            box-shadow: 0 2px 6px var(--shadow-light);
+            transition: all 0.2s ease;
+        }
+
+        .pagina-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 10px var(--shadow-medium);
+        }
+
+        .pagina-card img {
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .pagina-card-content {
+            padding: 1.5rem;
+        }
+
+        .pagina-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ SECTION */
+        .faq-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--accent-color);
+        }
+
+        .faq-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-list {
+            margin-top: 1.5rem;
+        }
+
+        .faq-item {
+            margin-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .faq-question {
+            cursor: pointer;
+            padding: 0.6rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            transition: transform 0.2s ease;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 0.6rem;
+            color: var(--body-text);
+            font-size: 0.85rem;
+        }
+
+        .faq-answer p {
+            padding-bottom: 0.6rem;
+        }
+
+        /* CONTACTO SECTION */
+        .contacto-section {
+            padding: var(--section-spacing) 1rem;
+            background-color: var(--white-bg);
+        }
+
+        .contacto-content {
+            max-width: 700px;
             margin: 0 auto;
             text-align: center;
         }
 
-        .contact-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            flex-wrap: wrap;
+        .contacto-badge {
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.9rem;
             margin-bottom: 2rem;
+            display: inline-block;
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
         }
 
         .contact-form {
             background: var(--light-bg);
             border-radius: var(--border-radius-md);
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: 0 2px 6px var(--shadow-light);
+            margin-top: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), #ff6b6b);
         }
 
         .form-group {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.4rem;
+            margin-bottom: 0.5rem;
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 0.7rem;
+            padding: 0.8rem;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius-sm);
-            font-size: 0.85rem;
+            font-size: 0.95rem;
             transition: border-color 0.2s ease, box-shadow 0.2s ease;
         }
 
@@ -549,57 +1088,82 @@
         .submit-btn {
             background: var(--primary-color);
             color: var(--light-text);
-            padding: 0.8rem 2rem;
+            padding: 1rem 2.5rem;
             border-radius: var(--border-radius-pill);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: all 0.2s ease;
             box-shadow: 0 2px 8px var(--shadow-light);
+            width: 100%;
+            position: relative;
         }
 
         .submit-btn:hover {
             background: var(--primary-darker);
+            color: var(--light-text);
             transform: translateY(-2px);
+            box-shadow: 0 4px 12px var(--shadow-medium);
         }
 
-        /* CTA FIJO */
-        .cta-fixed {
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            background: var(--primary-color);
-            color: var(--light-text);
-            padding: 0.6rem 1.5rem;
-            border-radius: var(--border-radius-pill);
-            font-weight: 600;
+        .contact-info {
+            background: var(--light-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            margin-top: 2rem;
+            text-align: left;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .contact-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info-item i {
+            color: var(--primary-color);
+            margin-right: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        .payment-info {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .payment-info p {
             font-size: 0.85rem;
-            box-shadow: 0 2px 8px var(--shadow-medium);
-            transition: background 0.2s ease, transform 0.2s ease;
-            z-index: 1000;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-fixed:hover {
-            background: var(--primary-darker);
-            transform: scale(1.05);
-            color: var(--light-text);
+            color: var(--body-text);
+            font-style: italic;
         }
 
         /* FOOTER */
         footer {
             background: var(--dark-text);
             color: var(--light-text);
-            padding: 2rem 1rem;
+            padding: 2rem 20px;
+            text-align: center;
         }
 
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 1rem;
         }
 
         .footer-logo {
@@ -609,7 +1173,6 @@
             font-weight: 600;
             color: var(--light-text);
             font-family: var(--font-family-heading);
-            margin-bottom: 1rem;
         }
 
         .footer-logo img {
@@ -617,219 +1180,516 @@
             margin-right: 0.7rem;
         }
 
-        .footer-links {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .footer-links a {
-            color: var(--light-text);
-            font-size: 0.8rem;
-            margin: 0.3rem 0;
-            transition: color 0.2s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--secondary-color);
-        }
-
         .social-links {
-            margin-top: 0.8rem;
             display: flex;
-            gap: 0.6rem;
-            flex-wrap: wrap;
+            gap: 1rem;
         }
 
         .social-links a {
             color: var(--light-text);
-            font-size: 0.8rem;
-            padding: 0.4rem;
+            padding: 0.6rem;
             border-radius: var(--border-radius-sm);
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
+            justify-content: center;
         }
 
         .social-links a i {
-            font-size: 0.6rem;
-        }
-
-        .social-links a.instagram {
-            background-color: #E1306C;
+            font-size: 1.2rem;
         }
 
         .social-links a.linkedin {
             background-color: #0A66C2;
         }
 
-        .social-links a:hover {
-            transform: scale(1.1);
+        .social-links a.instagram {
+            background-color: #E4405F;
         }
 
-        .social-links a.instagram:hover {
-            background-color: #C13584;
+        .social-links a:hover {
+            transform: scale(1.1);
         }
 
         .social-links a.linkedin:hover {
             background-color: #004182;
         }
 
+        .social-links a.instagram:hover {
+            background-color: #C13584;
+        }
+
         .footer-bottom {
-            text-align: center;
-            margin-top: 1.2rem;
-            font-size: 0.75rem;
+            margin-top: 1.5rem;
+            font-size: 0.8rem;
             opacity: 0.8;
+        }
+
+        /* CTA FIJO */
+        .cta-fixed {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.8rem 1.8rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px var(--shadow-medium);
+            transition: all 0.2s ease;
+            z-index: 1000;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-fixed:hover {
+            background: var(--primary-darker);
+            color: var(--light-text);
+            transform: scale(1.05);
+            box-shadow: 0 6px 16px var(--shadow-medium);
+        }
+
+        /* BOTONES FLOTANTES */
+        .floating-buttons {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .floating-btn {
+            background: rgba(255, 255, 255, 0.9);
+            color: var(--dark-text);
+            padding: 0.8rem 1.2rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px var(--shadow-medium);
+            transition: all 0.2s ease;
+            text-align: center;
+            white-space: nowrap;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .floating-btn:hover {
+            transform: translateX(-5px);
+            box-shadow: 0 6px 15px var(--shadow-medium);
+        }
+
+        .floating-btn.visitors {
+            background: rgba(59, 130, 246, 0.9);
+            color: white;
+        }
+
+        .floating-btn.discount {
+            background: #ff6b6b;
+            color: white;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-btn.discount.clicked {
+            animation: clickPulse 0.6s ease;
+        }
+
+        @keyframes clickPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); background: #ff5252; }
+            100% { transform: scale(1); }
+        }
+
+        /* SECCIÓN OFERTA ESPECIAL */
+        .oferta-especial-section {
+            padding: var(--section-spacing) 1rem;
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .oferta-especial-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"%3E%3Cg fill="none" stroke="%23ffffff" stroke-opacity="0.1" stroke-width="0.4"%3E%3Cpath d="M0 500h1000M500 0v1000"/%3E%3C/g%3E%3C/svg%3E') repeat;
+            animation: float 35s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .oferta-especial-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: var(--border-radius-lg);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        .oferta-badge {
+            background: var(--secondary-color);
+            color: var(--dark-text);
+            padding: 0.5rem 1.5rem;
+            border-radius: var(--border-radius-pill);
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            animation: pulse 2s infinite;
+        }
+
+        .oferta-title {
+            font-size: clamp(2rem, 4.5vw, 3rem);
+            color: var(--dark-text);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .oferta-description {
+            font-size: 1.2rem;
+            color: var(--body-text);
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .oferta-features {
+            background: var(--accent-color);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .oferta-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), #ff6b6b);
+        }
+
+        .oferta-features h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .oferta-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .oferta-feature-item {
+            background: var(--white-bg);
+            border-radius: var(--border-radius-md);
+            padding: 1.5rem;
+            box-shadow: 0 2px 6px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .oferta-feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px var(--shadow-medium);
+        }
+
+        .oferta-feature-icon {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+        }
+
+        .oferta-feature-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-text);
+        }
+
+        .oferta-feature-item p {
+            font-size: 0.9rem;
+            color: var(--body-text);
+            line-height: 1.6;
+        }
+
+        .oferta-cta {
+            margin-top: 2.5rem;
+        }
+
+        .oferta-interest-form {
+            background: var(--white-bg);
+            border-radius: var(--border-radius-md);
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 12px var(--shadow-light);
+        }
+
+        .form-interest-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-interest-group .form-control {
+            flex: 1;
+        }
+
+        .form-interest-message {
+            margin-bottom: 1.5rem;
+        }
+
+        .submit-interest-btn {
+            background: linear-gradient(135deg, #ff6b6b, #ff5252);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: var(--border-radius-pill);
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
+            width: 100%;
+            position: relative;
+        }
+
+        .submit-interest-btn:hover {
+            background: linear-gradient(135deg, #ff5252, #ff3d3d);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+
+        .oferta-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .timer-item {
+            text-align: center;
+        }
+
+        .timer-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .timer-label {
+            font-size: 0.9rem;
+            color: var(--body-text);
+            text-transform: uppercase;
         }
 
         /* ANIMATIONS */
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
         .fade-in {
             opacity: 0;
-            transform: translateY(15px);
-            animation: fadeInUp 0.5s ease forwards;
+            transform: translateY(10px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .servicios-grid, .paginas-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .sobre-mi-content, .sobre-aurora-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .sobre-mi-image, .sobre-aurora-image {
+                width: 160px;
+                margin-bottom: 1rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .plan-card.plan-profesional {
+                transform: scale(1);
+            }
+            
+            .oferta-features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
             }
 
-            nav {
-                padding: 0 1rem;
-            }
-
             nav ul {
                 display: none;
                 flex-direction: column;
-                position: absolute;
+                position: fixed;
                 top: var(--header-height);
                 left: 0;
                 width: 100%;
+                height: calc(100vh - var(--header-height));
                 background: var(--white-bg);
+                padding: 1.5rem 0;
                 box-shadow: 0 3px 8px var(--shadow-light);
-                transition: opacity 0.3s ease, visibility 0.3s ease;
-                opacity: 0;
-                visibility: hidden;
+                text-align: center;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
             }
 
             nav ul.active {
                 display: flex;
-                opacity: 1;
-                visibility: visible;
+                transform: translateX(0);
+            }
+
+            nav ul li {
+                margin: 0.6rem 0;
             }
 
             nav ul li a {
-                font-size: 0.9rem;
-                padding: 0.6rem 1.2rem;
+                display: block;
+                padding: 0.8rem 1rem;
+                font-size: 1rem;
             }
 
             .hero {
-                min-height: 60vh;
+                min-height: 70vh;
                 padding: var(--header-height) 0.8rem 1rem;
             }
 
             .hero-buttons {
                 flex-direction: column;
-                gap: 0.8rem;
+                align-items: center;
+                gap: 0.6rem;
             }
 
             .btn {
                 width: 100%;
-                max-width: 300px;
-                padding: 0.8rem 1.5rem;
-                font-size: 1rem;
+                max-width: 240px;
             }
 
-            .ecommerce-features, .dental-features, .how-grid, .packages-grid {
+            .servicios-grid, .porque-grid, .paginas-grid {
                 grid-template-columns: 1fr;
-            }
-
-            .about-me-content, .about-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-
-            .about-image, .about-me-image {
-                width: 160px;
-            }
-
-            .partner-logo {
-                width: 100px;
-            }
-
-            .cta-fixed {
-                bottom: 10px;
-                right: 10px;
-                padding: 0.6rem 1.2rem;
-                font-size: 0.8rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo {
-                font-size: 1rem;
-            }
-
-            .logo-img {
-                width: 36px;
-            }
-
-            .hero h1 {
-                font-size: clamp(1.8rem, 5vw, 2.2rem);
-            }
-
-            .hero p {
-                font-size: 0.9rem;
-            }
-
-            .about-image, .about-me-image {
-                width: 140px;
             }
 
             .partner-logo {
                 width: 80px;
             }
 
-            .btn {
-                font-size: 0.9rem;
-                padding: 0.7rem 1.2rem;
+            .floating-buttons {
+                flex-direction: row;
+                right: 10px;
+                top: auto;
+                bottom: 80px;
+                transform: none;
             }
 
-            .cta-fixed {
-                padding: 0.5rem 1rem;
+            .floating-btn {
+                padding: 0.6rem 1rem;
                 font-size: 0.75rem;
             }
 
-            .footer-logo {
-                font-size: 1.2rem;
+            .mini-consultoria-objetivo ul {
+                grid-template-columns: 1fr;
+            }
+            
+            .oferta-especial-content {
+                padding: 1.5rem;
+            }
+            
+            .form-interest-group {
+                flex-direction: column;
+            }
+            
+            .oferta-timer {
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .logo-img {
+                width: 36px;
             }
 
             .footer-logo img {
                 width: 40px;
             }
 
-            .footer-links a {
-                font-size: 0.75rem;
+            .hero h1 {
+                font-size: clamp(1.6rem, 5vw, 1.8rem);
+            }
+
+            .hero p {
+                font-size: 0.85rem;
+            }
+
+            .servicio-card, .pagina-card {
+                padding: 1.2rem;
+            }
+
+            .sobre-mi-image, .sobre-aurora-image {
+                width: 120px;
+            }
+
+            .partner-logo {
+                width: 60px;
             }
 
             .social-links a {
-                font-size: 0.75rem;
-                padding: 0.3rem;
+                font-size: 0.9rem;
             }
 
             .social-links a i {
-                font-size: 0.55rem;
+                font-size: 1rem;
             }
 
-            .footer-bottom {
+            .floating-btn {
+                padding: 0.5rem 0.8rem;
                 font-size: 0.7rem;
             }
         }
@@ -846,12 +1706,15 @@
             <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false"><i class="fas fa-bars"></i></button>
             <ul>
                 <li><a href="#home">Inicio</a></li>
-                <li><a href="#ecommerce"><i class="fas fa-shopping-cart"></i> E-commerce</a></li>
-                <li><a href="#dental"><i class="fas fa-tooth"></i> Consultorios</a></li>
-                <li><a href="#how">Cómo Trabajamos</a></li>
-                <li><a href="#about">Sobre Mí</a></li>
-                <li><a href="#partners">Partners</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#porque">Por Qué</a></li>
+                <li><a href="#socios">Socios</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+                <li><a href="#sobre-aurora">Aurora Point</a></li>
+                <li><a href="#paginas">Páginas</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
@@ -859,237 +1722,537 @@
     <main>
         <!-- HERO SECTION -->
         <section id="home" class="hero">
-            <div class="hero-content container fade-in">
-                <h1>Aurora Point Digital – Estrategias inteligentes para escalar tu negocio digital</h1>
-                <p>Ayudo a marcas y consultorios a crecer con marketing claro, rentable y humano.</p>
+            <div class="hero-content container">
+                <h1>Estrategias Digitales para Consultorios y Centros Médicos</h1>
+                <p>Atrae más pacientes con campañas efectivas y páginas que convierten.</p>
                 <div class="hero-buttons">
-                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-shopping-cart"></i> Consultoría E-commerce ($250)
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Agendar Asesoría
                     </a>
-                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
-                        <i class="fas fa-tooth"></i> Mini-consultoría Consultorios (Gratis)
+                    <a href="#servicios" class="btn btn-secondary">
+                        <i class="fas fa-tooth"></i> Ver Servicios
                     </a>
                 </div>
             </div>
         </section>
 
-        <!-- E-COMMERCE SECTION -->
-        <section id="ecommerce" class="ecommerce-section">
+        <!-- MINI-CONSULTORIA SECTION -->
+        <section id="mini-consultoria" class="mini-consultoria-section">
             <div class="container">
-                <h2 class="fade-in">Consultoría Estratégica para E-commerce</h2>
-                <div class="section-intro fade-in">
-                    <p>Consulta paga de 60 minutos (extensible si es necesario) para analizar los puntos clave de tu tienda online y optimizar tus resultados.</p>
-                </div>
-                <div class="ecommerce-features fade-in">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-chart-line"></i></div>
-                        <h3>Auditoría de Campañas</h3>
+                <div class="mini-consultoria-content">
+                    <h2>Mini-consultoría para Consultorios</h2>
+                    <div class="mini-consultoria-description">
+                        <p>Sesión gratuita de 30 minutos para evaluar tu presencia digital, identificar oportunidades clave y ofrecer recomendaciones para atraer más pacientes.</p>
+                        <p>Esta sesión tiene como objetivo evaluar tu situación y, si es adecuado, ofrecerte una solución personalizada. No es una venta directa, sino una oportunidad para explorar cómo podemos ayudarte.</p>
+                    </div>
+                    
+                    <div class="mini-consultoria-objetivo">
+                        <h3><i class="fas fa-search"></i> ¿Qué analizaremos en nuestra sesión?</h3>
                         <ul>
-                            <li><i class="fas fa-check"></i> Análisis de anuncios</li>
-                            <li><i class="fas fa-check"></i> Optimización de ROI</li>
+                            <li>
+                                <i class="fas fa-chart-line"></i>
+                                <span>Situación actual de tu consultorio</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-bullseye"></i>
+                                <span>Objetivos de crecimiento y captación</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-search"></i>
+                                <span>Análisis de competencia digital</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-users"></i>
+                                <span>Perfil de tu paciente ideal</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-mobile-alt"></i>
+                                <span>Presencia en redes sociales</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-globe"></i>
+                                <span>Optimización de Google My Business</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-ad"></i>
+                                <span>Estrategias publicitarias efectivas</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-chart-pie"></i>
+                                <span>Oportunidades de mejora inmediata</span>
+                            </li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-search"></i></div>
-                        <h3>SEO/SEM</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Mejora en buscadores</li>
-                            <li><i class="fas fa-check"></i> Tráfico de calidad</li>
-                        </ul>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-retweet"></i></div>
-                        <h3>Remarketing</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Campañas personalizadas</li>
-                            <li><i class="fas fa-check"></i> Recuperación de leads</li>
-                        </ul>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
-                        <h3>Plan de Crecimiento</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Estrategia a 3-6 meses</li>
-                            <li><i class="fas fa-check"></i> Escalabilidad</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="fade-in" style="text-align: center;">
-                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría E-commerce <i class="fas fa-calendar-check"></i></a>
+                    
+                    <a href="#contacto" class="mini-consultoria-cta">
+                        <i class="fas fa-calendar-check"></i> Agendar Mini-consultoría
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- DENTAL SECTION -->
-        <section id="dental" class="dental-section">
+        <!-- SERVICIOS SECTION -->
+        <section id="servicios" class="servicios-section">
             <div class="container">
-                <h2 class="fade-in">Mini-consultoría para Consultorios</h2>
-                <div class="section-intro fade-in">
-                    <p>Sesión gratuita de 30 minutos para evaluar tu presencia digital, identificar oportunidades clave y ofrecer recomendaciones para atraer más pacientes.</p>
-                    <p style="font-size: 0.85rem; color: var(--body-text); margin-top: 0.5rem;">
-                        Esta sesión tiene como objetivo evaluar tu situación y, si es adecuado, ofrecerte una solución personalizada. No es una venta directa, sino una oportunidad para explorar cómo podemos ayudarte.
-                    </p>
+                <div class="servicios-header">
+                    <h2>Servicios de Marketing Digital para Especialistas</h2>
                 </div>
-                <div class="dental-features fade-in">
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-ad"></i></div>
-                        <h3>Meta Ads</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Campañas efectivas</li>
-                            <li><i class="fas fa-check"></i> Captación de pacientes</li>
+                <div class="servicios-grid">
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-ad"></i>
+                        </div>
+                        <h3>Publicidad Multi-Plataforma</h3>
+                        <div class="servicio-badge">Meta + Google + TikTok</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Estrategia Meta Ads, Google Ads y TikTok</li>
+                            <li><i class="fas fa-check"></i> Edición profesional de videos</li>
+                            <li><i class="fas fa-check"></i> Copywriting persuasivo</li>
+                            <li><i class="fas fa-check"></i> Segmentación por nicho</li>
+                            <li><i class="fas fa-check"></i> Optimización continua</li>
+                            <li><i class="fas fa-check"></i> A/B testing constante</li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-star"></i></div>
-                        <h3>Branding Digital</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Imagen profesional</li>
-                            <li><i class="fas fa-check"></i> Genera confianza</li>
+                    
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Mejora de Google My Business</h3>
+                        <div class="servicio-badge">Visibilidad local</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Optimización del perfil</li>
+                            <li><i class="fas fa-check"></i> Gestión de reseñas</li>
+                            <li><i class="fas fa-check"></i> Publicación de posts</li>
+                            <li><i class="fas fa-check"></i> Mejora de visibilidad</li>
+                            <li><i class="fas fa-check"></i> Integración con Google Ads</li>
+                            <li><i class="fas fa-check"></i> Monitoreo de competencia</li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                        <h3>Automatización</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Agendamiento automático</li>
-                            <li><i class="fas fa-check"></i> Flujos con IA</li>
+                    
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>IA, Automatizaciones y Agentes</h3>
+                        <div class="servicio-badge">Implementación a medida</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Chatbots para consultas</li>
+                            <li><i class="fas fa-check"></i> Flujos automáticos de email</li>
+                            <li><i class="fas fa-check"></i> Recordatorios de citas</li>
+                            <li><i class="fas fa-check"></i> Análisis predictivo</li>
+                            <li><i class="fas fa-exclamation-circle" style="color: #ff6b6b;"></i> *IA no disponible actualmente</li>
+                            <li><i class="fas fa-check"></i> Soporte técnico 24/7</li>
                         </ul>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-icon"><i class="fas fa-funnel-dollar"></i></div>
-                        <h3>Embudos</h3>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Conversión de leads</li>
-                            <li><i class="fas fa-check"></i> Pacientes leales</li>
+                    
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Marketing Especializado</h3>
+                        <div class="servicio-badge">Centros de estética y cirujanos</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Campañas para tratamientos</li>
+                            <li><i class="fas fa-check"></i> Segmentación por procedimientos</li>
+                            <li><i class="fas fa-check"></i> Landing pages para cirugías</li>
+                            <li><i class="fas fa-check"></i> Email marketing personalizado</li>
+                            <li><i class="fas fa-check"></i> Experiencia del paciente</li>
+                            <li><i class="fas fa-check"></i> Atención al cliente premium</li>
                         </ul>
                     </div>
-                </div>
-                <div class="fade-in" style="text-align: center;">
-                    <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría Consultorios <i class="fas fa-calendar-check"></i></a>
+                    
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Experiencia del Paciente</h3>
+                        <div class="servicio-badge">Valor agregado</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Journey mapping</li>
+                            <li><i class="fas fa-check"></i> Encuestas de satisfacción</li>
+                            <li><i class="fas fa-check"></i> Atención post-tratamiento</li>
+                            <li><i class="fas fa-check"></i> Seguimiento personalizado</li>
+                            <li><i class="fas fa-check"></i> Programas de fidelización</li>
+                            <li><i class="fas fa-check"></i> Gestión de reputación online</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="servicio-card">
+                        <div class="servicio-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Analytics y Reporting</h3>
+                        <div class="servicio-badge">Decisiones basadas en datos</div>
+                        <ul class="servicio-features">
+                            <li><i class="fas fa-check"></i> Dashboards personalizados</li>
+                            <li><i class="fas fa-check"></i> KPIs estratégicos</li>
+                            <li><i class="fas fa-check"></i> Análisis de conversiones</li>
+                            <li><i class="fas fa-check"></i> Reportes mensuales detallados</li>
+                            <li><i class="fas fa-check"></i> Recomendaciones de mejora</li>
+                            <li><i class="fas fa-check"></i> Benchmarking con competencia</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- PACKAGES SECTION -->
-        <section id="packages" class="packages-section">
+        <!-- PLANES AURORA POINT SECTION -->
+        <section id="planes" class="planes-section">
             <div class="container">
-                <h2 class="fade-in">Nuestros Servicios</h2>
-                <div class="section-intro fade-in">
-                    <p>Soluciones diseñadas para e-commerce y consultorios odontológicos, con opciones de consultoría paga y gratuita.</p>
+                <div class="planes-header">
+                    <h2>Planes Aurora Point</h2>
+                    <p class="subtitle">Soluciones personalizadas para tu consultorio</p>
                 </div>
-                <div class="packages-grid fade-in">
-                    <div class="package-card">
-                        <div class="package-icon"><i class="fas fa-shopping-cart"></i></div>
-                        <h3>Consultoría E-commerce</h3>
-                        <div class="package-price">$250</div>
-                        <div class="package-period">60 minutos (extensible)</div>
-                        <ul class="package-features">
-                            <li><i class="fas fa-check"></i> Análisis profundo de tu tienda</li>
-                            <li><i class="fas fa-check"></i> Estrategia personalizada</li>
-                            <li><i class="fas fa-check"></i> Optimización de anuncios y SEO</li>
-                        </ul>
-                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría E-commerce <i class="fas fa-calendar-check"></i></a>
+                
+                <p class="planes-intro">Elige el plan que mejor se adapte a las necesidades de tu consultorio. Todos nuestros planes incluyen soporte dedicado y resultados medibles.</p>
+                
+                <div class="planes-grid">
+                    <!-- Plan Básico -->
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h3>Plan Básico</h3>
+                            <div class="plan-badge">Ideal para consultorios pequeños</div>
+                        </div>
+                        
+                        <div class="plan-features">
+                            <h4>Estrategia Meta Ads</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Hasta 4 videos cortos editados profesionalmente por mes (guion incluido)</li>
+                                <li><i class="fas fa-check"></i> Copywriting para campañas publicitarias</li>
+                                <li><i class="fas fa-check"></i> Mejora de Google My Business</li>
+                                <li><i class="fas fa-check"></i> Landing page básica</li>
+                                <li><i class="fas fa-check"></i> 4-6 anuncios activos simultáneos</li>
+                            </ul>
+                            
+                            <h4>Email Marketing</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Email Marketing básico</li>
+                                <li><i class="fas fa-check"></i> Automatizaciones personalizadas (IA, asistentes de voz, flujos automáticos) – se implementan a medida según cliente</li>
+                            </ul>
+                            
+                            <h4>Reportes</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Reporte mensual de resultados</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contacto" class="plan-cta">Seleccionar Plan</a>
                     </div>
-                    <div class="package-card">
-                        <div class="package-icon"><i class="fas fa-tooth"></i></div>
-                        <h3>Mini-consultoría Consultorios</h3>
-                        <div class="package-price">Gratis</div>
-                        <div class="package-period">30 minutos</div>
-                        <ul class="package-features">
-                            <li><i class="fas fa-check"></i> Evaluación de tu presencia digital</li>
-                            <li><i class="fas fa-check"></i> Identificación de oportunidades clave</li>
-                            <li><i class="fas fa-check"></i> Recomendaciones para atraer más pacientes</li>
-                        </ul>
-                        <p style="font-size: 0.85rem; color: var(--body-text); margin-top: 1rem; text-align: left;">
-                            Esta sesión tiene como objetivo evaluar tu situación y, si es adecuado, ofrecerte una solución personalizada. No es una venta directa, sino una oportunidad para explorar cómo podemos ayudarte.
-                        </p>
-                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">Agendar Consultoría Consultorios <i class="fas fa-calendar-check"></i></a>
+                    
+                    <!-- Plan Profesional -->
+                    <div class="plan-card plan-profesional">
+                        <div class="plan-header">
+                            <h3>Plan Profesional</h3>
+                            <div class="plan-badge">Recomendado para consultorios consolidados</div>
+                        </div>
+                        
+                        <div class="plan-features">
+                            <h4>Todo lo del Plan Básico</h4>
+                            
+                            <h4>Publicidad Multicanal</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Meta Ads + Google Ads + TikTok Ads</li>
+                                <li><i class="fas fa-check"></i> Hasta 8 videos cortos editados profesionalmente por mes</li>
+                            </ul>
+                            
+                            <h4>Páginas y Estrategias</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Landing page avanzada</li>
+                                <li><i class="fas fa-check"></i> Método Experiencia del Paciente</li>
+                            </ul>
+                            
+                            <h4>Marketing Avanzado</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Automatizaciones personalizadas (IA, asistentes de voz, flujos automáticos) – se implementan a medida según cliente</li>
+                                <li><i class="fas fa-check"></i> Campañas de Email Marketing avanzadas</li>
+                            </ul>
+                            
+                            <h4>Soporte y Reportes</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Sesión de consultoría mensual</li>
+                                <li><i class="fas fa-check"></i> Reporte semanal de resultados</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contacto" class="plan-cta">Seleccionar Plan</a>
+                    </div>
+                    
+                    <!-- Plan Premium -->
+                    <div class="plan-card plan-premium">
+                        <div class="plan-header">
+                            <h3>Plan Premium</h3>
+                            <div class="plan-badge">Para clínicas con crecimiento acelerado</div>
+                        </div>
+                        
+                        <div class="plan-features">
+                            <h4>Todo lo del Plan Profesional</h4>
+                            
+                            <h4>Páginas Adicionales</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Landing pages adicionales según campaña</li>
+                            </ul>
+                            
+                            <h4>Estrategia Avanzada</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Revisión integral de estrategia mensual</li>
+                                <li><i class="fas fa-check"></i> Priorización en actualizaciones y soporte</li>
+                            </ul>
+                            
+                            <h4>Automatización Premium</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Automatización avanzada de marketing (IA, asistentes de voz, flujos automáticos) – se implementan a medida según cliente</li>
+                            </ul>
+                            
+                            <h4>Reportes Detallados</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Reporte detallado de ROI</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="#contacto" class="plan-cta">Seleccionar Plan</a>
+                    </div>
+                </div>
+                
+                <div class="planes-note">
+                    <p><i class="fas fa-info-circle"></i> E-commerce y asesorías adicionales se consultan aparte.</p>
+                    <a href="#contacto" class="btn btn-consult">[Enviar Mensaje para Consultar]</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORQUE SECTION -->
+        <section id="porque" class="porque-section">
+            <div class="container">
+                <h2>¿Por qué Aurora Point?</h2>
+                <div class="porque-grid">
+                    <div class="porque-card">
+                        <div class="porque-icon">
+                            <i class="fas fa-user-md"></i>
+                        </div>
+                        <h3>Experiencia Especializada</h3>
+                        <p>Experiencia real en marketing digital para clínicas y profesionales de la salud estética y dental.</p>
+                    </div>
+                    <div class="porque-card">
+                        <div class="porque-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Resultados Medibles</h3>
+                        <p>Soluciones diseñadas para resultados medibles y consistentes en el tiempo.</p>
+                    </div>
+                    <div class="porque-card">
+                        <div class="porque-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Estrategias Personalizadas</h3>
+                        <p>Enfoque único según las necesidades específicas de cada cliente.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PARTNERS SECTION -->
-        <section id="partners" class="partners-section">
+        <!-- SOCIOS SECTION -->
+        <section id="socios" class="socios-section">
             <div class="container">
-                <h2 class="fade-in">Nuestros Socios</h2>
-                <div class="partners-grid fade-in">
-                    <img src="google-partners-.png" alt="Google Partners" class="partner-logo" loading="lazy">
-                    <img src="Klaviyo-partner-.png" alt="Klaviyo Partner" class="partner-logo" loading="lazy">
-                    <img src="meta-business-partner.jpg" alt="Meta Business Partner" class="partner-logo" loading="lazy">
-                    <img src="shopify-partners-.jpg" alt="Shopify Partners" class="partner-logo" loading="lazy">
-                    <img src="tiktok partner.png" alt="TikTok Partner" class="partner-logo" loading="lazy">
+                <h2>Nuestros Socios</h2>
+                <div class="socios-content">
+                    <p>Ellos confiaron en nosotros.</p>
+                    <div class="socios-grid">
+                        <img src="google-partners-.png" alt="Google Partners" class="partner-logo" loading="lazy">
+                        <img src="Klaviyo-partner-.png" alt="Klaviyo Partner" class="partner-logo" loading="lazy">
+                        <img src="meta-business-partner.jpg" alt="Meta Business Partner" class="partner-logo" loading="lazy">
+                        <img src="shopify-partners-.jpg" alt="Shopify Partners" class="partner-logo" loading="lazy">
+                        <img src="tiktok partner.png" alt="TikTok Partner" class="partner-logo" loading="lazy">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- HOW WE WORK SECTION -->
-        <section id="how" class="how-section">
+        <!-- SOBRE MI SECTION -->
+        <section id="sobre-mi" class="sobre-mi-section">
             <div class="container">
-                <h2 class="fade-in">Cómo Trabajamos</h2>
-                <div class="how-grid fade-in">
-                    <div class="how-card">
-                        <div class="how-icon"><i class="fas fa-search"></i></div>
-                        <h3>Consultoría Inicial</h3>
-                        <p>Identificamos oportunidades clave para tu negocio.</p>
+                <div class="sobre-mi-content">
+                    <div class="sobre-mi-text">
+                        <h2>Sobre Mí</h2>
+                        <p>Soy Álvaro Álvarez, especialista en estrategias digitales enfocadas en el sector odontológico y estético. Ayudo a profesionales de la salud a atraer más pacientes con campañas efectivas y páginas diseñadas para convertir.</p>
+                        <p>Con más de 10 años de experiencia, combinamos marketing digital avanzado (SEO, SEM, CRO), inteligencia artificial y diseño de landing pages optimizadas para resinas e implantes, con trabajo inteligente valorando tu tiempo en Shopify y WooCommerce.</p>
                     </div>
-                    <div class="how-card">
-                        <div class="how-icon"><i class="fas fa-lightbulb"></i></div>
-                        <h3>Estrategia Personalizada</h3>
-                        <p>Plan diseñado para tus metas específicas.</p>
-                    </div>
-                    <div class="how-card">
-                        <div class="how-icon"><i class="fas fa-play"></i></div>
-                        <h3>Ejecución y Seguimiento</h3>
-                        <p>Implementamos y optimizamos continuamente.</p>
-                    </div>
-                </div>
-                <div class="how-highlight fade-in">
-                    En Aurora Point no hacemos magia. Aplicamos método, análisis y constancia.
-                </div>
-                <div class="fade-in" style="text-align: center;">
-                    <a href="#contact" class="btn btn-primary">Comenzar Ahora <i class="fas fa-arrow-right"></i></a>
+                    <img src="imagen.png" alt="Álvaro Álvarez, Fundador de Aurora Point" class="sobre-mi-image" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- ABOUT SECTIONS -->
-        <section id="about" class="about-sections">
+        <!-- SOBRE AURORA SECTION -->
+        <section id="sobre-aurora" class="sobre-aurora-section">
             <div class="container">
-                <h2 class="fade-in">Sobre Mí – Álvaro Álvarez</h2>
-                <div class="about-me-content fade-in">
-                    <img src="imagen.png" alt="Álvaro Álvarez, Fundador de Aurora Point" class="about-me-image" loading="lazy">
-                    <div class="about-me-text">
-                        <p>Soy Álvaro Álvarez, el fundador de Aurora Point. Con una pasión por el crecimiento digital y años de experiencia en marketing B2B dental, lidero proyectos que transforman negocios de e-commerce mediante dedicación, trabajo inteligente y valorando tu tiempo en Shopify y WooCommerce.</p>
-                        <p>Mi enfoque combina creatividad, datos y tecnología para ofrecer soluciones personalizadas que se construyen con tiempo y esfuerzo. Estoy aquí para guiarte en cada paso hacia tus objetivos en insumos dentales.</p>
-                        <a href="#how" class="btn btn-secondary btn-my-method" style="background: var(--primary-color); color: var(--light-text); border: none;">Mi método <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <h2 class="fade-in">Sobre Aurora Point</h2>
-                <div class="about-content fade-in">
-                    <img src="SOBRE AURORA POINT.png" alt="Sobre Aurora Point" class="about-image" loading="lazy">
-                    <div class="about-text">
+                <div class="sobre-aurora-content">
+                    <img src="SOBRE AURORA POINT.png" alt="Sobre Aurora Point" class="sobre-aurora-image" loading="lazy">
+                    <div class="sobre-aurora-text">
+                        <h2>Sobre Aurora Point</h2>
                         <p>Aurora Point es el resultado de un equipo comprometido con transformar y escalar negocios de e-commerce B2B dental. Con más de 10 años de experiencia, combinamos marketing digital avanzado (SEO, SEM, CRO), inteligencia artificial y diseño de landing pages optimizadas para resinas e implantes, con trabajo inteligente valorando tu tiempo.</p>
                         <p>Nos integramos con nuestros clientes para generar progreso medible y sostenible mediante dedicación y paciencia, incentivando Shopify para escala. Nuestra misión es apoyarte en el camino al siguiente nivel.</p>
-                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">¡Agenda una Reunión! <i class="fas fa-calendar-check"></i></a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CONTACT SECTION -->
-        <section id="contact" class="contact-section">
+        <!-- PAGINAS SECTION -->
+        <section id="paginas" class="paginas-section">
             <div class="container">
-                <h2 class="fade-in">¿Listo para mejorar tus resultados digitales?</h2>
-                <div class="contact-content fade-in">
-                    <p>Agendá una consultoría ahora y empecemos a construir tu siguiente etapa.</p>
-                    <div class="contact-buttons">
-                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-shopping-cart"></i> Consultoría E-commerce ($250)
-                        </a>
-                        <a href="https://calendly.com/aurorapointdigital/auditoria-digital-completa-u-s-250-60-min" target="_blank" class="btn btn-primary">
-                            <i class="fas fa-tooth"></i> Mini-consultoría Consultorios (Gratis)
-                        </a>
+                <h2>Páginas de Aterrizaje</h2>
+                <div class="paginas-grid">
+                    <div class="pagina-card">
+                        <img src="pagina de aterisaje dental.gif" alt="Página de aterrizaje para consultorio odontológico B2B" loading="lazy">
+                        <div class="pagina-card-content">
+                            <h3>Landing Page Consultorio Odontológico B2B</h3>
+                        </div>
+                    </div>
+                    <div class="pagina-card">
+                        <img src="Pagina de aterisage automotora.gif" alt="Página de aterrizaje para Automotora del Cuareim" loading="lazy">
+                        <div class="pagina-card-content">
+                            <h3>Landing Page Automotora del Cuareim</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Preguntas Frecuentes</h2>
+                <div class="faq-content">
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <div class="faq-question">¿Quién graba los videos?</div>
+                            <div class="faq-answer">
+                                <p>El cliente graba con su móvil siguiendo un guion breve y estratégico que nosotros proporcionamos. Luego, realizamos la edición profesional.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">¿Incluyen automatizaciones o asistentes de voz?</div>
+                            <div class="faq-answer">
+                                <p>A futuro estarán disponibles bajo desarrollo personalizado. Por ahora nos enfocamos en estrategias de marketing digital probadas.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question">¿Realizan e-commerce para clínicas?</div>
+                            <div class="faq-answer">
+                                <p>Solo bajo consulta y asesoría especializada. Ofrecemos soluciones personalizadas según las necesidades específicas de cada clínica.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OFERTA ESPECIAL SECTION -->
+        <section id="oferta-especial" class="oferta-especial-section">
+            <div class="container">
+                <div class="oferta-especial-content">
+                    <div class="oferta-badge">
+                        <i class="fas fa-fire"></i> OFERTA ESPECIAL - PLAZAS LIMITADAS
+                    </div>
+                    <h2 class="oferta-title">¡Oportunidad Única para tu Consultorio!</h2>
+                    <p class="oferta-description">
+                        Te ofrecemos una promoción exclusiva solo para los primeros 10 consultorios que se registren este mes. Aprovecha esta oportunidad para potenciar tu presencia digital y atraer más pacientes con nuestras estrategias probadas.
+                    </p>
+                    
+                    <div class="oferta-features">
+                        <h3><i class="fas fa-star"></i> Beneficios Exclusivos</h3>
+                        <div class="oferta-features-grid">
+                            <div class="oferta-feature-item">
+                                <div class="oferta-feature-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <h4>Descuento Especial</h4>
+                                <p>Obtén un 20% de descuento en tu primer mes de servicio y ahorra en tu inversión inicial.</p>
+                            </div>
+                            <div class="oferta-feature-item">
+                                <div class="oferta-feature-icon">
+                                    <i class="fas fa-rocket"></i>
+                                </div>
+                                <h4>Landing Page Profesional</h4>
+                                <p>Te incluimos una landing page optimizada para consultorios dentales o estéticos, diseñada para convertir visitantes en pacientes.</p>
+                            </div>
+                            <div class="oferta-feature-item">
+                                <div class="oferta-feature-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <h4>Asesoría Adicional</h4>
+                                <p>Una sesión extra de consultoría para asegurar que tu estrategia esté perfectamente alineada con tus objetivos.</p>
+                            </div>
+                            <div class="oferta-feature-item">
+                                <div class="oferta-feature-icon">
+                                    <i class="fas fa-crown"></i>
+                                </div>
+                                <h4>Soporte Prioritario</h4>
+                                <p>Acceso a soporte prioritario durante los primeros 3 meses para asegurar el éxito de tu implementación.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="oferta-cta">
+                        <p style="font-size: 1.2rem; margin-bottom: 1.5rem; font-weight: 600;">
+                            ¿Te interesa esta oferta especial?
+                        </p>
+                        
+                        <form id="oferta-interest-form" class="oferta-interest-form">
+                            <div class="form-interest-group">
+                                <input type="text" id="oferta-name" class="form-control" placeholder="Tu nombre" required>
+                                <input type="email" id="oferta-email" class="form-control" placeholder="Correo electrónico" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="oferta-whatsapp" class="form-control" placeholder="WhatsApp" required>
+                            </div>
+                            <div class="form-group form-interest-message">
+                                <textarea id="oferta-message" class="form-control" placeholder="Cuéntanos brevemente sobre tu consultorio y qué te interesa de la oferta" rows="4" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="oferta-interest">¿Qué opción prefieres?</label>
+                                <select id="oferta-interest" class="form-control" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="plan-profesional">Plan Profesional con descuento</option>
+                                    <option value="plan-premium">Plan Premium con descuento</option>
+                                    <option value="mini-consultoria">Solo Mini-consultoría</option>
+                                    <option value="mas-informacion">Solo necesito más información</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="submit-interest-btn">
+                                <i class="fas fa-paper-plane"></i> Enviar Interés
+                            </button>
+                        </form>
+                        
+                        <div class="oferta-timer">
+                            <div class="timer-item">
+                                <span class="timer-value" id="days-left">7</span>
+                                <span class="timer-label">Días</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="hours-left">12</span>
+                                <span class="timer-label">Horas</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="minutes-left">45</span>
+                                <span class="timer-label">Minutos</span>
+                            </div>
+                            <div class="timer-item">
+                                <span class="timer-value" id="seconds-left">30</span>
+                                <span class="timer-label">Segundos</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTO SECTION -->
+        <section id="contacto" class="contacto-section">
+            <div class="container">
+                <h2>Hablemos de tu Proyecto Dental</h2>
+                <div class="contacto-content">
+                    <div class="contacto-badge">
+                        <i class="fas fa-gift"></i> Plazas limitadas para este mes - Agendar ahora y asegura tu lugar
                     </div>
                     <div class="contact-form">
                         <h3>Envíanos un Mensaje</h3>
@@ -1100,14 +2263,41 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo Electrónico</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="message">Mensaje</label>
+                                <label for="whatsapp">WhatsApp</label>
+                                <input type="tel" id="whatsapp" name="whatsapp" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="clinic">Clínica</label>
+                                <input type="text" id="clinic" name="clinic" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Comentario</label>
                                 <textarea id="message" name="message" class="form-control" required></textarea>
                             </div>
                             <button type="submit" class="submit-btn">Enviar <i class="fas fa-paper-plane"></i></button>
                         </form>
+                        
+                        <div class="contact-info">
+                            <h3><i class="fas fa-info-circle"></i> Información de Contacto</h3>
+                            <div class="contact-info-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>Email: aurorapointdigital@gmail.com</span>
+                            </div>
+                            <div class="contact-info-item">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>WhatsApp: (+598) 091 034222</span>
+                            </div>
+                            <div class="payment-info">
+                                <div class="contact-info-item">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Formas de pago: Pago seguro a través de PayPal - o depósito bancario - Mercado Pago solo en Uruguay - PayPal internacional</span>
+                                </div>
+                                <p>El enlace de pago se enviará al cliente tras agendar la reunión y confirmar el servicio/valor requerido.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1121,16 +2311,13 @@
                 <img src="logo.png" alt="Aurora Point Digital Logo" class="logo-img">
                 Aurora Point Digital
             </div>
-            <div class="footer-links">
-                <a href="#home">Inicio</a>
-                <a href="#ecommerce">E-commerce</a>
-                <a href="#dental">Consultorios</a>
-                <a href="#about">Sobre Mí</a>
-                <a href="#contact">Contacto</a>
-            </div>
             <div class="social-links">
-                <a href="https://instagram.com/aurorapointdigital" target="_blank" rel="noopener noreferrer" class="instagram"><i class="fab fa-instagram"></i> Instagram</a>
-                <a href="https://linkedin.com/in/alvaroalvarezmelo" target="_blank" rel="noopener noreferrer" class="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://linkedin.com/in/alvaroalvarezmelo" target="_blank" rel="noopener noreferrer" class="linkedin">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/aurorapointdigital/" target="_blank" rel="noopener noreferrer" class="instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
             </div>
         </div>
         <div class="footer-bottom">
@@ -1139,27 +2326,19 @@
     </footer>
 
     <!-- CTA FIJO -->
-    <a href="#contact" class="cta-fixed">Agendar Ahora</a>
+    <a href="#contacto" class="cta-fixed">
+        <i class="fas fa-calendar-check"></i> Agendar Asesoría
+    </a>
 
-    <!-- Klaviyo Script -->
-    <script>
-        window.klaviyo = window.klaviyo || [];
-        function initKlaviyo() {
-            if (window.klaviyo && window.klaviyo.push) {
-                window.klaviyo.push(['account', 'SswK4J']);
-            } else {
-                setTimeout(initKlaviyo, 100);
-            }
-        }
-        (function() {
-            var klaviyoScript = document.createElement('script');
-            klaviyoScript.type = 'text/javascript';
-            klaviyoScript.async = true;
-            klaviyoScript.src = 'https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=SswK4J';
-            klaviyoScript.onload = initKlaviyo;
-            document.head.appendChild(klaviyoScript);
-        })();
-    </script>
+    <!-- BOTONES FLOTANTES -->
+    <div class="floating-buttons">
+        <div class="floating-btn visitors" id="visitors-btn">
+            <i class="fas fa-users"></i> <span id="visitors-count">32</span> personas viendo ahora
+        </div>
+        <div class="floating-btn discount" id="discount-btn">
+            <i class="fas fa-gift"></i> Plazas limitadas este mes
+        </div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1195,38 +2374,156 @@
                         const target = document.querySelector(href);
                         if (target) {
                             e.preventDefault();
-                            target.scrollIntoView({ behavior: 'smooth' });
+                            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }
                     }
                 });
             });
 
-            // Contact Form Handling with Klaviyo
+            // FAQ Toggle
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', () => {
+                    question.classList.toggle('active');
+                    const answer = question.nextElementSibling;
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    }
+                });
+            });
+
+            // Contact Form Handling
             const form = document.getElementById('contact-form');
             form?.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const formData = new FormData(form);
-                const name = formData.get('name');
-                const email = formData.get('email');
-                const message = formData.get('message');
-
-                function submitToKlaviyo() {
-                    if (window.klaviyo && window.klaviyo.push) {
-                        window.klaviyo.push(['identify', {
-                            $email: email,
-                            $first_name: name
-                        }]);
-                        window.klaviyo.push(['track', 'Contact Form Submission', {
-                            Message: message
-                        }]);
-                        alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-                        form.reset();
-                    } else {
-                        setTimeout(submitToKlaviyo, 100);
-                    }
-                }
-                submitToKlaviyo();
+                // Simulación de envío exitoso
+                alert('¡Gracias por tu mensaje! Te contactaremos pronto para coordinar la reunión.');
+                form.reset();
             });
+
+            // Offer Interest Form Handling
+            const ofertaForm = document.getElementById('oferta-interest-form');
+            ofertaForm?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                // Simulación de envío exitoso
+                alert('¡Gracias por tu interés en nuestra oferta especial! Te contactaremos pronto para coordinar una llamada.');
+                ofertaForm.reset();
+            });
+
+            // Scroll Animations
+            const fadeElements = document.querySelectorAll('.fade-in');
+            if (fadeElements.length) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                fadeElements.forEach(el => observer.observe(el));
+            }
+
+            // Plans section animation
+            const plansSection = document.getElementById('planes');
+            if (plansSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            
+                            // Animate plan cards with stagger effect
+                            const planCards = entry.target.querySelectorAll('.plan-card');
+                            planCards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, index * 150);
+                            });
+                            
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.1 });
+                
+                // Initial styles for animation
+                const planCards = plansSection.querySelectorAll('.plan-card');
+                planCards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                });
+                
+                observer.observe(plansSection);
+            }
+
+            // Script para cambiar el número de visitantes
+            function updateVisitorsCount() {
+                const visitorsCount = document.getElementById('visitors-count');
+                const min = 25;
+                const max = 50;
+                const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
+                visitorsCount.textContent = randomCount;
+            }
+
+            // Cambiar el número cada 5 segundos
+            setInterval(updateVisitorsCount, 5000);
+
+            // Función para desplazarse a la sección de oferta
+            function scrollToOffer() {
+                const ofertaSection = document.getElementById('oferta-especial');
+                if (ofertaSection) {
+                    // Calcular la posición considerando el header fijo
+                    const headerHeight = document.getElementById('header').offsetHeight;
+                    const targetPosition = ofertaSection.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Marcar el botón como clickeado
+                    const discountBtn = document.getElementById('discount-btn');
+                    discountBtn.classList.add('clicked');
+                    setTimeout(() => {
+                        discountBtn.classList.remove('clicked');
+                    }, 600);
+                } else {
+                    console.error('No se pudo encontrar la sección de oferta especial');
+                }
+            }
+            
+            // Asignar la función al botón de descuento
+            const discountBtn = document.getElementById('discount-btn');
+            discountBtn.addEventListener('click', scrollToOffer);
+
+            // Función para actualizar el contador regresivo
+            function updateCountdown() {
+                const endDate = new Date();
+                endDate.setDate(endDate.getDate() + 7); // 7 días desde ahora
+                endDate.setHours(23, 59, 59, 999); // Al final del día
+                
+                const now = new Date();
+                const timeLeft = endDate - now;
+                
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('days-left').textContent = days;
+                    document.getElementById('hours-left').textContent = hours;
+                    document.getElementById('minutes-left').textContent = minutes;
+                    document.getElementById('seconds-left').textContent = seconds;
+                }
+            }
+            
+            // Actualizar el contador cada segundo
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Ejecutar una vez al cargar
         });
     </script>
 </body>
