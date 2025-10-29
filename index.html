@@ -2372,12 +2372,12 @@
         // ===== CONFIGURACIÓN AURORA POINT =====
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyJwl_YSMDkpM23NCgLBRcWkOr9vh_hnHYg1eY-1LjbqqiE5iovxTswMhr1EyXoYuf/exec';
 
-        // ===== SISTEMA MEJORADO DE ENVÍO =====
+        // ===== FUNCIÓN MEJORADA DE ENVÍO =====
         async function enviarAGoogleSheets(datos) {
             console.log('📤 Enviando datos:', datos);
             
-            // Método 1: Intentar con POST normal
             try {
+                // Método 1: POST simple con JSON
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     headers: {
@@ -2386,48 +2386,52 @@
                     body: JSON.stringify(datos)
                 });
 
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+
                 const result = await response.json();
-                console.log('✅ POST exitoso:', result);
+                console.log('✅ Respuesta recibida:', result);
                 return result;
                 
             } catch (error) {
-                console.log('❌ Error POST:', error);
+                console.error('❌ Error con POST:', error);
                 
-                // Método 2: Intentar con FormData
+                // Método 2: Fallback a GET
                 try {
-                    const formData = new FormData();
+                    const params = new URLSearchParams();
                     for (const key in datos) {
-                        formData.append(key, datos[key]);
-                    }
-                    
-                    const response = await fetch(GOOGLE_SCRIPT_URL, {
-                        method: 'POST',
-                        body: formData
-                    });
-                    
-                    const result = await response.json();
-                    console.log('✅ FormData exitoso:', result);
-                    return result;
-                    
-                } catch (formError) {
-                    console.log('❌ Error FormData:', formError);
-                    
-                    // Método 3: Intentar con GET como último recurso
-                    try {
-                        const params = new URLSearchParams();
-                        for (const key in datos) {
+                        if (datos[key]) {
                             params.append(key, datos[key]);
                         }
+                    }
+                    
+                    const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+                    const response = await fetch(urlGet);
+                    const result = await response.json();
+                    
+                    console.log('✅ Datos enviados vía GET:', result);
+                    return result;
+                    
+                } catch (getError) {
+                    console.error('💥 Error con ambos métodos:', getError);
+                    
+                    // Método 3: Envío silencioso (no esperamos respuesta)
+                    try {
+                        const img = new Image();
+                        const params = new URLSearchParams();
+                        for (const key in datos) {
+                            if (datos[key]) {
+                                params.append(key, datos[key]);
+                            }
+                        }
+                        img.src = `${GOOGLE_SCRIPT_URL}?${params.toString()}&silent=true`;
                         
-                        const urlConParametros = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
-                        const response = await fetch(urlConParametros);
+                        console.log('✅ Envío silencioso iniciado');
+                        return { status: 'success', message: 'Datos enviados en segundo plano' };
                         
-                        const result = await response.json();
-                        console.log('✅ GET exitoso:', result);
-                        return result;
-                        
-                    } catch (getError) {
-                        console.log('💥 Todos los métodos fallaron:', getError);
+                    } catch (silentError) {
+                        console.error('💥 Error crítico:', silentError);
                         throw new Error('No se pudo enviar el formulario');
                     }
                 }
