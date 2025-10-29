@@ -2681,6 +2681,25 @@
             setInterval(updateCountdown, 1000);
             updateCountdown();
         });
+        
+        // Manejo de errores global para evitar errores en consola
+        window.addEventListener('error', function(e) {
+            // Solo mostrar errores que no sean de extensiones
+            if (!e.message.includes('extension') && !e.message.includes('chrome-extension')) {
+                console.error('Error capturado:', e.error);
+            }
+        });
+        
+        // Manejo de promesas no capturadas
+        window.addEventListener('unhandledrejection', function(e) {
+            // Solo mostrar errores que no sean de extensiones
+            if (!e.reason || 
+                (typeof e.reason === 'string' && !e.reason.includes('extension')) ||
+                (e.reason.message && !e.reason.message.includes('extension'))) {
+                console.error('Promesa rechazada no manejada:', e.reason);
+            }
+            e.preventDefault();
+        });
     </script>
 </body>
 </html>
