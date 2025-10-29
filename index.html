@@ -1527,6 +1527,38 @@
             transform: translateY(0);
         }
 
+        /* ESTILOS PARA MENSAJES DE ALERTA */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid transparent;
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1001;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 992px) {
             .servicios-grid, .paginas-grid {
@@ -1692,31 +1724,6 @@
                 padding: 0.5rem 0.8rem;
                 font-size: 0.7rem;
             }
-        }
-
-        /* ESTILOS PARA MENSAJES DE ALERTA */
-        .alert {
-            padding: 1rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-            border: 1px solid transparent;
-        }
-        
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border-color: #c3e6cb;
-        }
-        
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border-color: #f5c6cb;
-        }
-        
-        .loading {
-            opacity: 0.6;
-            pointer-events: none;
         }
     </style>
 </head>
@@ -2363,8 +2370,8 @@
 
     <script>
         // ===== CONFIGURACIÓN AURORA POINT =====
-        // ⚠️ REEMPLAZA ESTA URL CON LA QUE OBTUVISTE DE GOOGLE APPS SCRIPT
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzgZ8R5Qk6SUjl7orYNMdWV0cj1o2kO7yfS2I8RO2GDwFC9y2v-zTJibNBYLkRmUWHo/exec';
+        // ✅ URL ACTUALIZADA CON TU APLICACIÓN WEB
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyJwl_YSMDkpM23NCgLBRcWkOr9vh_hnHYg1eY-1LjbqqiE5iovxTswMhr1EyXoYuf/exec';
 
         // ===== FUNCIONES PRINCIPALES =====
         async function enviarAGoogleSheets(datos) {
@@ -2374,7 +2381,7 @@
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'text/plain',
+                        'Content-Type': 'application/json',
                     },
                     body: JSON.stringify(datos)
                 });
@@ -2383,18 +2390,28 @@
                     throw new Error(`Error HTTP: ${response.status}`);
                 }
 
-                const result = await response.text();
+                const result = await response.json();
                 console.log('✅ Respuesta recibida:', result);
-                
-                try {
-                    return JSON.parse(result);
-                } catch (e) {
-                    return { status: 'success', message: 'Datos enviados' };
-                }
+                return result;
                 
             } catch (error) {
                 console.error('❌ Error de conexión:', error);
-                throw error;
+                
+                // Fallback: intentar con método GET
+                try {
+                    const params = new URLSearchParams();
+                    Object.keys(datos).forEach(key => {
+                        params.append(key, datos[key]);
+                    });
+                    
+                    const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+                    await fetch(urlGet);
+                    console.log('✅ Datos enviados vía GET (fallback)');
+                    return { status: 'success', message: 'Datos enviados vía GET' };
+                } catch (getError) {
+                    console.error('💥 Error con ambos métodos:', getError);
+                    throw getError;
+                }
             }
         }
 
