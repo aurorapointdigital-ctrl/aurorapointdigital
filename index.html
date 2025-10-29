@@ -2370,13 +2370,13 @@
 
     <script>
         // ===== CONFIGURACIÓN AURORA POINT =====
-        // ✅ URL ACTUALIZADA CON TU APLICACIÓN WEB
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyyJwl_YSMDkpM23NCgLBRcWkOr9vh_hnHYg1eY-1LjbqqiE5iovxTswMhr1EyXoYuf/exec';
 
-        // ===== FUNCIONES PRINCIPALES =====
+        // ===== SISTEMA MEJORADO DE ENVÍO =====
         async function enviarAGoogleSheets(datos) {
-            console.log('📤 Enviando datos a Google Sheets:', datos);
+            console.log('📤 Enviando datos:', datos);
             
+            // Método 1: Intentar con POST normal
             try {
                 const response = await fetch(GOOGLE_SCRIPT_URL, {
                     method: 'POST',
@@ -2386,31 +2386,50 @@
                     body: JSON.stringify(datos)
                 });
 
-                if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
-                }
-
                 const result = await response.json();
-                console.log('✅ Respuesta recibida:', result);
+                console.log('✅ POST exitoso:', result);
                 return result;
                 
             } catch (error) {
-                console.error('❌ Error de conexión:', error);
+                console.log('❌ Error POST:', error);
                 
-                // Fallback: intentar con método GET
+                // Método 2: Intentar con FormData
                 try {
-                    const params = new URLSearchParams();
-                    Object.keys(datos).forEach(key => {
-                        params.append(key, datos[key]);
+                    const formData = new FormData();
+                    for (const key in datos) {
+                        formData.append(key, datos[key]);
+                    }
+                    
+                    const response = await fetch(GOOGLE_SCRIPT_URL, {
+                        method: 'POST',
+                        body: formData
                     });
                     
-                    const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
-                    await fetch(urlGet);
-                    console.log('✅ Datos enviados vía GET (fallback)');
-                    return { status: 'success', message: 'Datos enviados vía GET' };
-                } catch (getError) {
-                    console.error('💥 Error con ambos métodos:', getError);
-                    throw getError;
+                    const result = await response.json();
+                    console.log('✅ FormData exitoso:', result);
+                    return result;
+                    
+                } catch (formError) {
+                    console.log('❌ Error FormData:', formError);
+                    
+                    // Método 3: Intentar con GET como último recurso
+                    try {
+                        const params = new URLSearchParams();
+                        for (const key in datos) {
+                            params.append(key, datos[key]);
+                        }
+                        
+                        const urlConParametros = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+                        const response = await fetch(urlConParametros);
+                        
+                        const result = await response.json();
+                        console.log('✅ GET exitoso:', result);
+                        return result;
+                        
+                    } catch (getError) {
+                        console.log('💥 Todos los métodos fallaron:', getError);
+                        throw new Error('No se pudo enviar el formulario');
+                    }
                 }
             }
         }
@@ -2539,7 +2558,7 @@
                     mensaje: 'Usuario hizo clic en Mini-Consultoría'
                 };
                 
-                // Enviar de forma silenciosa (no esperar respuesta)
+                // Enviar de forma silenciosa
                 enviarAGoogleSheets(datos).catch(console.error);
                 
                 // Redirigir al contacto
