@@ -686,7 +686,7 @@
         }
 
         .plan-price {
-            display: none; /* Ocultamos el precio */
+            display: none;
         }
 
         .plan-features h4 {
@@ -2208,10 +2208,10 @@
                                 <label for="oferta-interest">¿Qué opción prefieres?</label>
                                 <select id="oferta-interest" class="form-control" required>
                                     <option value="">Selecciona una opción</option>
-                                    <option value="plan-profesional">Plan Profesional con descuento</option>
-                                    <option value="plan-premium">Plan Premium con descuento</option>
-                                    <option value="mini-consultoria">Solo Mini-consultoría</option>
-                                    <option value="mas-informacion">Solo necesito más información</option>
+                                    <option value="Plan Profesional con descuento">Plan Profesional con descuento</option>
+                                    <option value="Plan Premium con descuento">Plan Premium con descuento</option>
+                                    <option value="Solo Mini-consultoría">Solo Mini-consultoría</option>
+                                    <option value="Solo necesito más información">Solo necesito más información</option>
                                 </select>
                             </div>
                             <button type="submit" class="submit-interest-btn">
@@ -2221,7 +2221,7 @@
                         
                         <div class="oferta-timer">
                             <div class="timer-item">
-                                <span class="timer-value" id="days-left">7</span>
+                                <span class="timer-value" id="days-left">07</span>
                                 <span class="timer-label">Días</span>
                             </div>
                             <div class="timer-item">
@@ -2337,6 +2337,201 @@
     </div>
 
     <script>
+        // ===== CONFIGURACIÓN AURORA POINT =====
+        // REEMPLAZA ESTA URL CON LA QUE OBTENGAS DEL GOOGLE APPS SCRIPT DESPUÉS DE DESPLEGAR
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwBkpvQ2CVimQ3fM8X60Wr-uR2US4zvSHTLEzOvtwkGzvNO4P0ImyQ9efMKHbWRNy2q/exec';
+
+        // ===== FUNCIONES PRINCIPALES =====
+        function enviarAGoogleSheets(datos) {
+            console.log('Enviando datos a Google Sheets:', datos);
+            
+            return fetch(GOOGLE_SCRIPT_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(datos)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Error en la respuesta del servidor');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('✅ Datos enviados correctamente:', data);
+                return data;
+            })
+            .catch(error => {
+                console.error('❌ Error enviando datos:', error);
+                throw error;
+            });
+        }
+
+        function obtenerPaginaActual() {
+            const hash = window.location.hash;
+            if (hash.includes('contacto')) return 'Página de Contacto';
+            if (hash.includes('oferta-especial')) return 'Página de Oferta';
+            if (hash.includes('mini-consultoria')) return 'Página de Mini-Consultoría';
+            if (hash.includes('planes')) return 'Página de Planes';
+            if (hash.includes('servicios')) return 'Página de Servicios';
+            return 'Página Principal';
+        }
+
+        function mostrarLoading(boton) {
+            const textoOriginal = boton.innerHTML;
+            boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            boton.disabled = true;
+            return textoOriginal;
+        }
+
+        function restaurarBoton(boton, textoOriginal) {
+            boton.innerHTML = textoOriginal;
+            boton.disabled = false;
+        }
+
+        // ===== MANEJADORES DE FORMULARIOS =====
+
+        // 1. Formulario de Contacto Principal
+        const formContacto = document.getElementById('contact-form');
+        if (formContacto) {
+            formContacto.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const boton = formContacto.querySelector('.submit-btn');
+                const textoOriginal = mostrarLoading(boton);
+                
+                const formData = {
+                    tipo: 'Contacto',
+                    nombre: document.getElementById('name').value,
+                    email: document.getElementById('email').value,
+                    whatsapp: document.getElementById('whatsapp').value,
+                    clinica: document.getElementById('clinic').value,
+                    mensaje: document.getElementById('message').value,
+                    pagina: obtenerPaginaActual()
+                };
+                
+                try {
+                    const resultado = await enviarAGoogleSheets(formData);
+                    if (resultado.status === 'success') {
+                        alert('✅ ¡Gracias por tu mensaje! Te contactaremos pronto para coordinar la reunión.');
+                        formContacto.reset();
+                    } else {
+                        alert('❌ Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                    }
+                } catch (error) {
+                    console.error('Error completo:', error);
+                    alert('❌ Error de conexión. Por favor, contáctanos directamente por WhatsApp: +598 091 034222');
+                } finally {
+                    restaurarBoton(boton, textoOriginal);
+                }
+            });
+        }
+
+        // 2. Formulario de Oferta Especial
+        const formOferta = document.getElementById('oferta-interest-form');
+        if (formOferta) {
+            formOferta.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                
+                const boton = formOferta.querySelector('.submit-interest-btn');
+                const textoOriginal = mostrarLoading(boton);
+                
+                const formData = {
+                    tipo: 'Oferta',
+                    nombre: document.getElementById('oferta-name').value,
+                    email: document.getElementById('oferta-email').value,
+                    whatsapp: document.getElementById('oferta-whatsapp').value,
+                    mensaje: document.getElementById('oferta-message').value,
+                    interes: document.getElementById('oferta-interest').value,
+                    pagina: obtenerPaginaActual()
+                };
+                
+                try {
+                    const resultado = await enviarAGoogleSheets(formData);
+                    if (resultado.status === 'success') {
+                        alert('✅ ¡Gracias por tu interés en nuestra oferta especial! Te contactaremos pronto para coordinar una llamada.');
+                        formOferta.reset();
+                    } else {
+                        alert('❌ Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                    }
+                } catch (error) {
+                    console.error('Error completo:', error);
+                    alert('❌ Error de conexión. Por favor, contáctanos directamente por WhatsApp: +598 091 034222');
+                } finally {
+                    restaurarBoton(boton, textoOriginal);
+                }
+            });
+        }
+
+        // 3. Manejo de Mini-Consultoría
+        document.querySelectorAll('.mini-consultoria-cta').forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Registrar el clic en Google Sheets
+                const datosMiniConsultoria = {
+                    tipo: 'MiniConsultoria',
+                    nombre: 'Click en Mini-Consultoría',
+                    pagina: 'Página de Mini-Consultoría',
+                    mensaje: 'Usuario hizo clic en el botón de Mini-Consultoría'
+                };
+                
+                enviarAGoogleSheets(datosMiniConsultoria)
+                    .then(() => {
+                        // Redirigir al formulario de contacto
+                        window.location.href = '#contacto';
+                        
+                        // Pre-llenar el mensaje después de un delay
+                        setTimeout(() => {
+                            const campoMensaje = document.getElementById('message');
+                            if (campoMensaje) {
+                                campoMensaje.value = 'Me interesa la mini-consultoría gratuita de 30 minutos para evaluar mi consultorio.';
+                                campoMensaje.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
+                        }, 800);
+                    })
+                    .catch(error => {
+                        console.error('Error registrando mini-consultoría:', error);
+                        // Redirigir igualmente aunque falle el registro
+                        window.location.href = '#contacto';
+                    });
+            });
+        });
+
+        // 4. Registro de clics en botones de planes
+        document.querySelectorAll('.plan-cta').forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                const planCard = boton.closest('.plan-card');
+                const planNombre = planCard.querySelector('h3').textContent;
+                
+                const datosPlan = {
+                    tipo: 'Click Plan',
+                    nombre: 'Click en Plan',
+                    pagina: 'Página de Planes',
+                    mensaje: `Usuario hizo clic en el botón del ${planNombre}`
+                };
+                
+                // Registrar el click (pero no impedir la navegación)
+                enviarAGoogleSheets(datosPlan).catch(error => {
+                    console.error('Error registrando click en plan:', error);
+                });
+            });
+        });
+
+        // 5. Registro de clics en botones flotantes
+        document.getElementById('discount-btn')?.addEventListener('click', () => {
+            const datos = {
+                tipo: 'Click Oferta',
+                nombre: 'Click en Oferta Flotante',
+                pagina: obtenerPaginaActual(),
+                mensaje: 'Usuario hizo clic en el botón flotante de oferta'
+            };
+            
+            enviarAGoogleSheets(datos).catch(console.error);
+        });
+
+        // ===== CÓDIGO EXISTENTE =====
         document.addEventListener('DOMContentLoaded', () => {
             // Header scroll effect
             window.addEventListener('scroll', () => {
@@ -2352,6 +2547,7 @@
                 menuToggle.innerHTML = navUl.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
                 menuToggle.setAttribute('aria-expanded', navUl.classList.contains('active'));
             });
+            
             navUl?.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navUl.classList.contains('active')) {
@@ -2390,88 +2586,24 @@
                 });
             });
 
-            // Contact Form Handling
-            const form = document.getElementById('contact-form');
-            form?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Simulación de envío exitoso
-                alert('¡Gracias por tu mensaje! Te contactaremos pronto para coordinar la reunión.');
-                form.reset();
-            });
-
-            // Offer Interest Form Handling
-            const ofertaForm = document.getElementById('oferta-interest-form');
-            ofertaForm?.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Simulación de envío exitoso
-                alert('¡Gracias por tu interés en nuestra oferta especial! Te contactaremos pronto para coordinar una llamada.');
-                ofertaForm.reset();
-            });
-
-            // Scroll Animations
-            const fadeElements = document.querySelectorAll('.fade-in');
-            if (fadeElements.length) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                fadeElements.forEach(el => observer.observe(el));
-            }
-
-            // Plans section animation
-            const plansSection = document.getElementById('planes');
-            if (plansSection) {
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible');
-                            
-                            // Animate plan cards with stagger effect
-                            const planCards = entry.target.querySelectorAll('.plan-card');
-                            planCards.forEach((card, index) => {
-                                setTimeout(() => {
-                                    card.style.opacity = '1';
-                                    card.style.transform = 'translateY(0)';
-                                }, index * 150);
-                            });
-                            
-                            observer.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.1 });
-                
-                // Initial styles for animation
-                const planCards = plansSection.querySelectorAll('.plan-card');
-                planCards.forEach(card => {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                });
-                
-                observer.observe(plansSection);
-            }
-
             // Script para cambiar el número de visitantes
             function updateVisitorsCount() {
                 const visitorsCount = document.getElementById('visitors-count');
-                const min = 25;
-                const max = 50;
-                const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
-                visitorsCount.textContent = randomCount;
+                if (visitorsCount) {
+                    const min = 25;
+                    const max = 50;
+                    const randomCount = Math.floor(Math.random() * (max - min + 1)) + min;
+                    visitorsCount.textContent = randomCount;
+                }
             }
 
-            // Cambiar el número cada 5 segundos
             setInterval(updateVisitorsCount, 5000);
+            updateVisitorsCount();
 
             // Función para desplazarse a la sección de oferta
             function scrollToOffer() {
                 const ofertaSection = document.getElementById('oferta-especial');
                 if (ofertaSection) {
-                    // Calcular la posición considerando el header fijo
                     const headerHeight = document.getElementById('header').offsetHeight;
                     const targetPosition = ofertaSection.offsetTop - headerHeight - 20;
                     
@@ -2480,26 +2612,22 @@
                         behavior: 'smooth'
                     });
                     
-                    // Marcar el botón como clickeado
                     const discountBtn = document.getElementById('discount-btn');
                     discountBtn.classList.add('clicked');
                     setTimeout(() => {
                         discountBtn.classList.remove('clicked');
                     }, 600);
-                } else {
-                    console.error('No se pudo encontrar la sección de oferta especial');
                 }
             }
             
-            // Asignar la función al botón de descuento
             const discountBtn = document.getElementById('discount-btn');
-            discountBtn.addEventListener('click', scrollToOffer);
+            discountBtn?.addEventListener('click', scrollToOffer);
 
             // Función para actualizar el contador regresivo
             function updateCountdown() {
                 const endDate = new Date();
-                endDate.setDate(endDate.getDate() + 7); // 7 días desde ahora
-                endDate.setHours(23, 59, 59, 999); // Al final del día
+                endDate.setDate(endDate.getDate() + 7);
+                endDate.setHours(23, 59, 59, 999);
                 
                 const now = new Date();
                 const timeLeft = endDate - now;
@@ -2510,16 +2638,20 @@
                     const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
                     const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
                     
-                    document.getElementById('days-left').textContent = days;
-                    document.getElementById('hours-left').textContent = hours;
-                    document.getElementById('minutes-left').textContent = minutes;
-                    document.getElementById('seconds-left').textContent = seconds;
+                    const daysEl = document.getElementById('days-left');
+                    const hoursEl = document.getElementById('hours-left');
+                    const minutesEl = document.getElementById('minutes-left');
+                    const secondsEl = document.getElementById('seconds-left');
+                    
+                    if (daysEl) daysEl.textContent = days.toString().padStart(2, '0');
+                    if (hoursEl) hoursEl.textContent = hours.toString().padStart(2, '0');
+                    if (minutesEl) minutesEl.textContent = minutes.toString().padStart(2, '0');
+                    if (secondsEl) secondsEl.textContent = seconds.toString().padStart(2, '0');
                 }
             }
             
-            // Actualizar el contador cada segundo
             setInterval(updateCountdown, 1000);
-            updateCountdown(); // Ejecutar una vez al cargar
+            updateCountdown();
         });
     </script>
 </body>
