@@ -2377,63 +2377,47 @@
             console.log('📤 Enviando datos:', datos);
             
             try {
-                // Método 1: POST simple con JSON
-                const response = await fetch(GOOGLE_SCRIPT_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(datos)
-                });
-
+                // Método principal: GET con parámetros URL (evita problemas CORS)
+                const params = new URLSearchParams();
+                for (const key in datos) {
+                    if (datos[key]) {
+                        params.append(key, datos[key]);
+                    }
+                }
+                
+                const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
+                console.log('URL de envío:', urlGet);
+                
+                const response = await fetch(urlGet);
+                
                 if (!response.ok) {
                     throw new Error(`Error HTTP: ${response.status}`);
                 }
 
                 const result = await response.json();
-                console.log('✅ Respuesta recibida:', result);
+                console.log('✅ Datos enviados vía GET:', result);
                 return result;
                 
             } catch (error) {
-                console.error('❌ Error con POST:', error);
+                console.error('❌ Error con GET:', error);
                 
-                // Método 2: Fallback a GET
+                // Método alternativo: Envío silencioso con imagen
                 try {
+                    const img = new Image();
                     const params = new URLSearchParams();
                     for (const key in datos) {
                         if (datos[key]) {
                             params.append(key, datos[key]);
                         }
                     }
+                    img.src = `${GOOGLE_SCRIPT_URL}?${params.toString()}&silent=true`;
                     
-                    const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
-                    const response = await fetch(urlGet);
-                    const result = await response.json();
+                    console.log('✅ Envío silencioso iniciado');
+                    return { status: 'success', message: 'Datos enviados en segundo plano' };
                     
-                    console.log('✅ Datos enviados vía GET:', result);
-                    return result;
-                    
-                } catch (getError) {
-                    console.error('💥 Error con ambos métodos:', getError);
-                    
-                    // Método 3: Envío silencioso (no esperamos respuesta)
-                    try {
-                        const img = new Image();
-                        const params = new URLSearchParams();
-                        for (const key in datos) {
-                            if (datos[key]) {
-                                params.append(key, datos[key]);
-                            }
-                        }
-                        img.src = `${GOOGLE_SCRIPT_URL}?${params.toString()}&silent=true`;
-                        
-                        console.log('✅ Envío silencioso iniciado');
-                        return { status: 'success', message: 'Datos enviados en segundo plano' };
-                        
-                    } catch (silentError) {
-                        console.error('💥 Error crítico:', silentError);
-                        throw new Error('No se pudo enviar el formulario');
-                    }
+                } catch (silentError) {
+                    console.error('💥 Error crítico:', silentError);
+                    throw new Error('No se pudo enviar el formulario');
                 }
             }
         }
@@ -2503,7 +2487,8 @@
                     whatsapp: document.getElementById('whatsapp').value,
                     clinica: document.getElementById('clinic').value,
                     mensaje: document.getElementById('message').value,
-                    pagina: 'Página de Contacto'
+                    pagina: 'Página de Contacto',
+                    timestamp: new Date().toISOString()
                 };
                 
                 try {
@@ -2534,7 +2519,8 @@
                     whatsapp: document.getElementById('oferta-whatsapp').value,
                     mensaje: document.getElementById('oferta-message').value,
                     interes: document.getElementById('oferta-interest').value,
-                    pagina: 'Página de Oferta'
+                    pagina: 'Página de Oferta',
+                    timestamp: new Date().toISOString()
                 };
                 
                 try {
@@ -2559,7 +2545,8 @@
                     tipo: 'MiniConsultoria',
                     nombre: 'Click en Mini-Consultoría',
                     pagina: 'Página de Mini-Consultoría',
-                    mensaje: 'Usuario hizo clic en Mini-Consultoría'
+                    mensaje: 'Usuario hizo clic en Mini-Consultoría',
+                    timestamp: new Date().toISOString()
                 };
                 
                 // Enviar de forma silenciosa
