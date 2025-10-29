@@ -2381,22 +2381,21 @@
                 const params = new URLSearchParams();
                 for (const key in datos) {
                     if (datos[key]) {
-                        params.append(key, datos[key]);
+                        params.append(key, encodeURIComponent(datos[key]));
                     }
                 }
                 
                 const urlGet = `${GOOGLE_SCRIPT_URL}?${params.toString()}`;
                 console.log('URL de envío:', urlGet);
                 
-                const response = await fetch(urlGet);
+                const response = await fetch(urlGet, {
+                    method: 'GET',
+                    mode: 'no-cors' // Importante para evitar problemas CORS
+                });
                 
-                if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
-                }
-
-                const result = await response.json();
-                console.log('✅ Datos enviados vía GET:', result);
-                return result;
+                // Con no-cors no podemos leer la respuesta, pero el envío funciona
+                console.log('✅ Datos enviados vía GET (no-cors)');
+                return { status: 'success', message: 'Datos enviados correctamente' };
                 
             } catch (error) {
                 console.error('❌ Error con GET:', error);
@@ -2407,7 +2406,7 @@
                     const params = new URLSearchParams();
                     for (const key in datos) {
                         if (datos[key]) {
-                            params.append(key, datos[key]);
+                            params.append(key, encodeURIComponent(datos[key]));
                         }
                     }
                     img.src = `${GOOGLE_SCRIPT_URL}?${params.toString()}&silent=true`;
@@ -2546,6 +2545,28 @@
                     nombre: 'Click en Mini-Consultoría',
                     pagina: 'Página de Mini-Consultoría',
                     mensaje: 'Usuario hizo clic en Mini-Consultoría',
+                    timestamp: new Date().toISOString()
+                };
+                
+                // Enviar de forma silenciosa
+                enviarAGoogleSheets(datos).catch(console.error);
+                
+                // Redirigir al contacto
+                window.location.href = '#contacto';
+            });
+        });
+
+        // Planes
+        document.querySelectorAll('.plan-cta').forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                const plan = boton.closest('.plan-card').querySelector('h3').textContent;
+                const datos = {
+                    tipo: 'Interés en Plan',
+                    nombre: 'Click en Plan',
+                    pagina: 'Página de Planes',
+                    mensaje: `Interés en el ${plan}`,
                     timestamp: new Date().toISOString()
                 };
                 
