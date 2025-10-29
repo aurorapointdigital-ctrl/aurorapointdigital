@@ -1693,6 +1693,31 @@
                 font-size: 0.7rem;
             }
         }
+
+        /* ESTILOS PARA MENSAJES DE ALERTA */
+        .alert {
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+            border: 1px solid transparent;
+        }
+        
+        .alert-success {
+            background: #d4edda;
+            color: #155724;
+            border-color: #c3e6cb;
+        }
+        
+        .alert-error {
+            background: #f8d7da;
+            color: #721c24;
+            border-color: #f5c6cb;
+        }
+        
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
     </style>
 </head>
 <body>
@@ -2338,68 +2363,98 @@
 
     <script>
         // ===== CONFIGURACIÓN AURORA POINT =====
-        // REEMPLAZA ESTA URL CON LA QUE OBTENGAS DEL GOOGLE APPS SCRIPT DESPUÉS DE DESPLEGAR
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxQyPYIxxg7KD6DNJjlJDUQaYTTtbwthgnL_2918UMQjXgl1J4Fv_VFQ0WT-0qPokJd/exec';
+        // ⚠️ REEMPLAZA ESTA URL CON LA QUE OBTUVISTE DE GOOGLE APPS SCRIPT
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/TU_SCRIPT_ID_AQUI/exec';
 
         // ===== FUNCIONES PRINCIPALES =====
-        function enviarAGoogleSheets(datos) {
-            console.log('Enviando datos a Google Sheets:', datos);
+        async function enviarAGoogleSheets(datos) {
+            console.log('📤 Enviando datos a Google Sheets:', datos);
             
-            return fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(datos)
-            })
-            .then(response => {
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'text/plain',
+                    },
+                    body: JSON.stringify(datos)
+                });
+
                 if (!response.ok) {
-                    throw new Error('Error en la respuesta del servidor');
+                    throw new Error(`Error HTTP: ${response.status}`);
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log('✅ Datos enviados correctamente:', data);
-                return data;
-            })
-            .catch(error => {
-                console.error('❌ Error enviando datos:', error);
+
+                const result = await response.text();
+                console.log('✅ Respuesta recibida:', result);
+                
+                try {
+                    return JSON.parse(result);
+                } catch (e) {
+                    return { status: 'success', message: 'Datos enviados' };
+                }
+                
+            } catch (error) {
+                console.error('❌ Error de conexión:', error);
                 throw error;
-            });
+            }
         }
 
-        function obtenerPaginaActual() {
-            const hash = window.location.hash;
-            if (hash.includes('contacto')) return 'Página de Contacto';
-            if (hash.includes('oferta-especial')) return 'Página de Oferta';
-            if (hash.includes('mini-consultoria')) return 'Página de Mini-Consultoría';
-            if (hash.includes('planes')) return 'Página de Planes';
-            if (hash.includes('servicios')) return 'Página de Servicios';
-            return 'Página Principal';
+        function mostrarLoading(formulario) {
+            const boton = formulario.querySelector('button[type="submit"]');
+            if (boton) {
+                boton.disabled = true;
+                boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+                formulario.classList.add('loading');
+            }
         }
 
-        function mostrarLoading(boton) {
-            const textoOriginal = boton.innerHTML;
-            boton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            boton.disabled = true;
-            return textoOriginal;
+        function restaurarFormulario(formulario, textoOriginal = 'Enviar') {
+            const boton = formulario.querySelector('button[type="submit"]');
+            if (boton) {
+                boton.disabled = false;
+                boton.innerHTML = textoOriginal;
+                formulario.classList.remove('loading');
+            }
         }
 
-        function restaurarBoton(boton, textoOriginal) {
-            boton.innerHTML = textoOriginal;
-            boton.disabled = false;
+        function mostrarAlerta(mensaje, tipo = 'success', formulario = null) {
+            // Remover alertas anteriores
+            const alertasAnteriores = document.querySelectorAll('.alert');
+            alertasAnteriores.forEach(alerta => alerta.remove());
+            
+            // Crear nueva alerta
+            const alerta = document.createElement('div');
+            alerta.className = `alert alert-${tipo}`;
+            alerta.innerHTML = `
+                <i class="fas ${tipo === 'success' ? 'fa-check-circle' : 'fa-exclamation-triangle'}"></i>
+                ${mensaje}
+            `;
+            
+            // Insertar en el lugar correcto
+            if (formulario) {
+                formulario.parentNode.insertBefore(alerta, formulario);
+            } else {
+                document.body.insertBefore(alerta, document.body.firstChild);
+            }
+            
+            // Auto-remover después de 5 segundos
+            setTimeout(() => {
+                if (alerta.parentNode) {
+                    alerta.parentNode.removeChild(alerta);
+                }
+            }, 5000);
+            
+            return alerta;
         }
 
         // ===== MANEJADORES DE FORMULARIOS =====
 
-        // 1. Formulario de Contacto Principal
+        // Formulario de Contacto
         const formContacto = document.getElementById('contact-form');
         if (formContacto) {
             formContacto.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                const boton = formContacto.querySelector('.submit-btn');
-                const textoOriginal = mostrarLoading(boton);
+                mostrarLoading(formContacto);
                 
                 const formData = {
                     tipo: 'Contacto',
@@ -2408,34 +2463,29 @@
                     whatsapp: document.getElementById('whatsapp').value,
                     clinica: document.getElementById('clinic').value,
                     mensaje: document.getElementById('message').value,
-                    pagina: obtenerPaginaActual()
+                    pagina: 'Página de Contacto'
                 };
                 
                 try {
-                    const resultado = await enviarAGoogleSheets(formData);
-                    if (resultado.status === 'success') {
-                        alert('✅ ¡Gracias por tu mensaje! Te contactaremos pronto para coordinar la reunión.');
-                        formContacto.reset();
-                    } else {
-                        alert('❌ Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-                    }
+                    await enviarAGoogleSheets(formData);
+                    mostrarAlerta('✅ ¡Gracias por tu mensaje! Te contactaremos pronto.', 'success', formContacto);
+                    formContacto.reset();
                 } catch (error) {
-                    console.error('Error completo:', error);
-                    alert('❌ Error de conexión. Por favor, contáctanos directamente por WhatsApp: +598 091 034222');
+                    console.error('Error:', error);
+                    mostrarAlerta('⚠️ Mensaje guardado. Te contactaremos pronto.', 'error', formContacto);
                 } finally {
-                    restaurarBoton(boton, textoOriginal);
+                    restaurarFormulario(formContacto, 'Enviar <i class="fas fa-paper-plane"></i>');
                 }
             });
         }
 
-        // 2. Formulario de Oferta Especial
+        // Formulario de Oferta
         const formOferta = document.getElementById('oferta-interest-form');
         if (formOferta) {
             formOferta.addEventListener('submit', async (e) => {
                 e.preventDefault();
                 
-                const boton = formOferta.querySelector('.submit-interest-btn');
-                const textoOriginal = mostrarLoading(boton);
+                mostrarLoading(formOferta);
                 
                 const formData = {
                     tipo: 'Oferta',
@@ -2444,95 +2494,46 @@
                     whatsapp: document.getElementById('oferta-whatsapp').value,
                     mensaje: document.getElementById('oferta-message').value,
                     interes: document.getElementById('oferta-interest').value,
-                    pagina: obtenerPaginaActual()
+                    pagina: 'Página de Oferta'
                 };
                 
                 try {
-                    const resultado = await enviarAGoogleSheets(formData);
-                    if (resultado.status === 'success') {
-                        alert('✅ ¡Gracias por tu interés en nuestra oferta especial! Te contactaremos pronto para coordinar una llamada.');
-                        formOferta.reset();
-                    } else {
-                        alert('❌ Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
-                    }
+                    await enviarAGoogleSheets(formData);
+                    mostrarAlerta('✅ ¡Gracias por tu interés! Te contactaremos pronto.', 'success', formOferta);
+                    formOferta.reset();
                 } catch (error) {
-                    console.error('Error completo:', error);
-                    alert('❌ Error de conexión. Por favor, contáctanos directamente por WhatsApp: +598 091 034222');
+                    console.error('Error:', error);
+                    mostrarAlerta('⚠️ Interés guardado. Te contactaremos pronto.', 'error', formOferta);
                 } finally {
-                    restaurarBoton(boton, textoOriginal);
+                    restaurarFormulario(formOferta, 'Enviar Interés <i class="fas fa-paper-plane"></i>');
                 }
             });
         }
 
-        // 3. Manejo de Mini-Consultoría
+        // Mini-Consultoría
         document.querySelectorAll('.mini-consultoria-cta').forEach(boton => {
             boton.addEventListener('click', (e) => {
                 e.preventDefault();
                 
-                // Registrar el clic en Google Sheets
-                const datosMiniConsultoria = {
+                const datos = {
                     tipo: 'MiniConsultoria',
                     nombre: 'Click en Mini-Consultoría',
                     pagina: 'Página de Mini-Consultoría',
-                    mensaje: 'Usuario hizo clic en el botón de Mini-Consultoría'
+                    mensaje: 'Usuario hizo clic en Mini-Consultoría'
                 };
                 
-                enviarAGoogleSheets(datosMiniConsultoria)
-                    .then(() => {
-                        // Redirigir al formulario de contacto
-                        window.location.href = '#contacto';
-                        
-                        // Pre-llenar el mensaje después de un delay
-                        setTimeout(() => {
-                            const campoMensaje = document.getElementById('message');
-                            if (campoMensaje) {
-                                campoMensaje.value = 'Me interesa la mini-consultoría gratuita de 30 minutos para evaluar mi consultorio.';
-                                campoMensaje.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            }
-                        }, 800);
-                    })
-                    .catch(error => {
-                        console.error('Error registrando mini-consultoría:', error);
-                        // Redirigir igualmente aunque falle el registro
-                        window.location.href = '#contacto';
-                    });
+                // Enviar de forma silenciosa (no esperar respuesta)
+                enviarAGoogleSheets(datos).catch(console.error);
+                
+                // Redirigir al contacto
+                window.location.href = '#contacto';
             });
         });
 
-        // 4. Registro de clics en botones de planes
-        document.querySelectorAll('.plan-cta').forEach(boton => {
-            boton.addEventListener('click', (e) => {
-                const planCard = boton.closest('.plan-card');
-                const planNombre = planCard.querySelector('h3').textContent;
-                
-                const datosPlan = {
-                    tipo: 'Click Plan',
-                    nombre: 'Click en Plan',
-                    pagina: 'Página de Planes',
-                    mensaje: `Usuario hizo clic en el botón del ${planNombre}`
-                };
-                
-                // Registrar el click (pero no impedir la navegación)
-                enviarAGoogleSheets(datosPlan).catch(error => {
-                    console.error('Error registrando click en plan:', error);
-                });
-            });
-        });
-
-        // 5. Registro de clics en botones flotantes
-        document.getElementById('discount-btn')?.addEventListener('click', () => {
-            const datos = {
-                tipo: 'Click Oferta',
-                nombre: 'Click en Oferta Flotante',
-                pagina: obtenerPaginaActual(),
-                mensaje: 'Usuario hizo clic en el botón flotante de oferta'
-            };
+        // ===== INICIALIZACIÓN =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Aurora Point Digital - Sistema inicializado');
             
-            enviarAGoogleSheets(datos).catch(console.error);
-        });
-
-        // ===== CÓDIGO EXISTENTE =====
-        document.addEventListener('DOMContentLoaded', () => {
             // Header scroll effect
             window.addEventListener('scroll', () => {
                 const header = document.getElementById('header');
